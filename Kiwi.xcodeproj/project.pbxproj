@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932483BF2A53BDE00081FEDC /* CustomTabBar.swift */; };
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
-		93D381802A53B7150099514E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817F2A53B7150099514E /* ContentView.swift */; };
+		93D381802A53B7150099514E /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817F2A53B7150099514E /* Overview.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932483BF2A53BDE00081FEDC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		93D3817A2A53B7140099514E /* Kiwi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3817D2A53B7150099514E /* KiwiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiApp.swift; sourceTree = "<group>"; };
-		93D3817F2A53B7150099514E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93D3817F2A53B7150099514E /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		93D381812A53B7160099514E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D381842A53B7160099514E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +34,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		932483BB2A53BAC20081FEDC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93D3817F2A53B7150099514E /* Overview.swift */,
+				932483BE2A53BB7C0081FEDC /* Custom Tab Bar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		932483BC2A53BAD00081FEDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		932483BD2A53BAE60081FEDC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		932483BE2A53BB7C0081FEDC /* Custom Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				932483BF2A53BDE00081FEDC /* CustomTabBar.swift */,
+			);
+			path = "Custom Tab Bar";
+			sourceTree = "<group>";
+		};
 		93D381712A53B7140099514E = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				93D3817D2A53B7150099514E /* KiwiApp.swift */,
-				93D3817F2A53B7150099514E /* ContentView.swift */,
+				932483BC2A53BAD00081FEDC /* Models */,
+				932483BB2A53BAC20081FEDC /* Views */,
+				932483BD2A53BAE60081FEDC /* Controllers */,
 				93D381812A53B7160099514E /* Assets.xcassets */,
 				93D381832A53B7160099514E /* Preview Content */,
 			);
@@ -137,7 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D381802A53B7150099514E /* ContentView.swift in Sources */,
+				93D381802A53B7150099514E /* Overview.swift in Sources */,
+				932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */,
 				93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
