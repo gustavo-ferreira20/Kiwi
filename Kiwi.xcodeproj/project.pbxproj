@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932483BF2A53BDE00081FEDC /* CustomTabBar.swift */; };
+		9339CD772A53E284000A21B1 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */; };
+		9339CD7B2A53E284000A21B1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */; };
+		9339CD7D2A53E284000A21B1 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD6B2A53E283000A21B1 /* Montserrat-Medium.ttf */; };
+		9339CD7E2A53E284000A21B1 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD6C2A53E283000A21B1 /* Montserrat-ThinItalic.ttf */; };
+		9339CD7F2A53E284000A21B1 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD6D2A53E283000A21B1 /* Montserrat-Black.ttf */; };
+		9339CD822A53E284000A21B1 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD702A53E283000A21B1 /* Montserrat-ExtraLight.ttf */; };
+		9339CD882A53E284000A21B1 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD762A53E284000A21B1 /* Montserrat-Thin.ttf */; };
+		9339CD8C2A53FBEB000A21B1 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339CD8B2A53FBEB000A21B1 /* TabBarButton.swift */; };
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381802A53B7150099514E /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817F2A53B7150099514E /* Overview.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
@@ -16,6 +24,15 @@
 
 /* Begin PBXFileReference section */
 		932483BF2A53BDE00081FEDC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		9339CD6B2A53E283000A21B1 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		9339CD6C2A53E283000A21B1 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		9339CD6D2A53E283000A21B1 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		9339CD702A53E283000A21B1 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		9339CD762A53E284000A21B1 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		9339CD892A53E427000A21B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9339CD8B2A53FBEB000A21B1 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		93D3817A2A53B7140099514E /* Kiwi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3817D2A53B7150099514E /* KiwiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiApp.swift; sourceTree = "<group>"; };
 		93D3817F2A53B7150099514E /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
@@ -61,8 +78,23 @@
 			isa = PBXGroup;
 			children = (
 				932483BF2A53BDE00081FEDC /* CustomTabBar.swift */,
+				9339CD8B2A53FBEB000A21B1 /* TabBarButton.swift */,
 			);
 			path = "Custom Tab Bar";
+			sourceTree = "<group>";
+		};
+		9339CD642A53E20E000A21B1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9339CD6D2A53E283000A21B1 /* Montserrat-Black.ttf */,
+				9339CD702A53E283000A21B1 /* Montserrat-ExtraLight.ttf */,
+				9339CD6B2A53E283000A21B1 /* Montserrat-Medium.ttf */,
+				9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */,
+				9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */,
+				9339CD762A53E284000A21B1 /* Montserrat-Thin.ttf */,
+				9339CD6C2A53E283000A21B1 /* Montserrat-ThinItalic.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		93D381712A53B7140099514E = {
@@ -84,10 +116,12 @@
 		93D3817C2A53B7140099514E /* Kiwi */ = {
 			isa = PBXGroup;
 			children = (
+				9339CD892A53E427000A21B1 /* Info.plist */,
 				93D3817D2A53B7150099514E /* KiwiApp.swift */,
 				932483BC2A53BAD00081FEDC /* Models */,
 				932483BB2A53BAC20081FEDC /* Views */,
 				932483BD2A53BAE60081FEDC /* Controllers */,
+				9339CD642A53E20E000A21B1 /* Font */,
 				93D381812A53B7160099514E /* Assets.xcassets */,
 				93D381832A53B7160099514E /* Preview Content */,
 			);
@@ -160,7 +194,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9339CD822A53E284000A21B1 /* Montserrat-ExtraLight.ttf in Resources */,
+				9339CD7B2A53E284000A21B1 /* Montserrat-Regular.ttf in Resources */,
+				9339CD7E2A53E284000A21B1 /* Montserrat-ThinItalic.ttf in Resources */,
+				9339CD882A53E284000A21B1 /* Montserrat-Thin.ttf in Resources */,
+				9339CD772A53E284000A21B1 /* Montserrat-SemiBold.ttf in Resources */,
 				93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */,
+				9339CD7F2A53E284000A21B1 /* Montserrat-Black.ttf in Resources */,
+				9339CD7D2A53E284000A21B1 /* Montserrat-Medium.ttf in Resources */,
 				93D381822A53B7160099514E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93D381802A53B7150099514E /* Overview.swift in Sources */,
+				9339CD8C2A53FBEB000A21B1 /* TabBarButton.swift in Sources */,
 				932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */,
 				93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */,
 			);
@@ -306,6 +348,7 @@
 				DEVELOPMENT_TEAM = 4XAU7XTZ94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kiwi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -335,6 +378,7 @@
 				DEVELOPMENT_TEAM = 4XAU7XTZ94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kiwi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

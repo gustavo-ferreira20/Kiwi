@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+
 struct Overview: View {
+    
+    @State var selectedTab: Tabs = .overview
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -17,9 +21,9 @@ struct Overview: View {
             
             Spacer()
             
-            CustomTabBar()
+            CustomTabBar(selectedTab: $selectedTab)
         }
-        .padding()
+        
     }
 }
 
