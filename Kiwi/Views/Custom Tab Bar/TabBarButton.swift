@@ -25,14 +25,14 @@ struct TabBarButton: View {
             }
             
             VStack ( alignment: .center, spacing: 4){
-                Image(systemName: imageName)
+                Image(systemName: isActive ? imageName + ".fill" : imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)
-                    .foregroundColor(isActive ? .black : .gray)
+                    .foregroundColor(isActive ? .green : .gray)
                 Text(buttonText)
-                    .font(.custom("Montserrat-SemiBold", size: 12))
-                    .foregroundColor(isActive ? .black : .gray)
+                    .font(isActive ? .custom("Montserrat-Black", size: 12) : .custom("Montserrat-SemiBold", size: 12)) 
+                    .foregroundColor(isActive ? .green : .gray)
                 
             }
             .frame(width: geo.size.width, height: geo.size.height)
