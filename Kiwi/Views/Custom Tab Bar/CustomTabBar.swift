@@ -17,7 +17,8 @@ struct CustomTabBar: View {
             Button(action: {
                 selectedTab = .overview
             }) {
-                TabBarButton(buttonText: "Overview", imageName: "network", isActive: selectedTab == .overview)
+                TabBarButton(buttonText: "Overview", imageName: "house", isActive: selectedTab == .overview)
+                    
             }
             
             Button(action: {

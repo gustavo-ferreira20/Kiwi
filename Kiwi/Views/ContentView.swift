@@ -17,16 +17,18 @@ struct ContentView: View {
     @State private var selectedTab: Tabs = .overview
     
     var body: some View {
-        VStack {
-            if selectedTab == .overview {
-                OverviewView()
-            } else if selectedTab == .news {
-                NewsView()
-            } else if selectedTab == .videos {
-                VideoView()
+        ZStack {
+            VStack {
+                if selectedTab == .overview {
+                    OverviewView()
+                } else if selectedTab == .news {
+                    NewsView()
+                } else if selectedTab == .videos {
+                    VideoView()
+                }
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
             }
-            Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
         }
     }
 }
