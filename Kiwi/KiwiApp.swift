@@ -11,7 +11,7 @@ import SwiftUI
 struct KiwiApp: App {
     var body: some Scene {
         WindowGroup {
-            Overview()
+            ContentView()
         }
     }
 }
