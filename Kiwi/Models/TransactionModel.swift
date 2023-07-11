@@ -15,12 +15,21 @@ struct Transaction: Identifiable{
     var merchant: String
     let amount: Double
     let type: TransactionType.RawValue
+    var location: String
     var categoryId: Int
     var category: String
     let isPending: Bool
     var isTransfer: Bool
     var isExpense: Bool
     var isEdited: Bool
+    
+    var dateParsed: Date{
+        date.dateParsed()
+    }
+    
+    var signedAmount: Double{
+        return type == TransactionType.credit.rawValue ? amount : -amount
+    }
     
 }
 
