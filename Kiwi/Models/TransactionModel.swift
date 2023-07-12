@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction: Identifiable, Decodable{
+struct Transaction: Identifiable, Decodable, Hashable{
     let id: Int
     let date: String
     let institution: String
@@ -15,7 +15,7 @@ struct Transaction: Identifiable, Decodable{
     var merchant: String
     let amount: Double
     let type: TransactionType.RawValue
-    var location: String
+//  var location: String
     var categoryId: Int
     var category: String
     let isPending: Bool

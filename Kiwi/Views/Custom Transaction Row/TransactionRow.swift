@@ -48,7 +48,7 @@ struct TransactionRow: View {
                     .foregroundColor(transaction.type == TransactionType.credit.rawValue ? Color.text : .primary)
                 
                 //MARK: Transaction Location
-                Text(transaction.location)
+//                Text(transaction.location)
             }
 
             

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct KiwiApp: App {
+    //doing api call for the transactions list
+    @StateObject var transactionListVM = TransactionListViewModel() // Delete this after doing the CRUD
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(transactionListVM) // delete this after do the CRUD
         }
     }
 }
