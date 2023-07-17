@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932483BF2A53BDE00081FEDC /* CustomTabBar.swift */; };
+		9331674B2A64E14C0042DEC4 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331674A2A64E14C0042DEC4 /* TransactionListView.swift */; };
 		9339CD772A53E284000A21B1 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */; };
 		9339CD7B2A53E284000A21B1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */; };
 		9339CD7D2A53E284000A21B1 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD6B2A53E283000A21B1 /* Montserrat-Medium.ttf */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		932483BF2A53BDE00081FEDC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		9331674A2A64E14C0042DEC4 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		9339CD6B2A53E283000A21B1 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				9398877C2A55010400C29740 /* VideoView.swift */,
 				9398877E2A55107E00C29740 /* OverviewView.swift */,
 				939887802A55148100C29740 /* ContentView.swift */,
+				9331674A2A64E14C0042DEC4 /* TransactionListView.swift */,
 				93AFFA8F2A5CE35100A2D6E0 /* Custom Transaction Row */,
 				932483BE2A53BB7C0081FEDC /* Custom Tab Bar */,
 				9375A7202A5E413D00083EAE /* RecentTransactionList.swift */,
@@ -282,6 +285,7 @@
 				932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */,
 				9399ECF72A5D2A6D0031B879 /* TransactionListViewModel.swift in Sources */,
 				93AFFA912A5CE37E00A2D6E0 /* TransactionRow.swift in Sources */,
+				9331674B2A64E14C0042DEC4 /* TransactionListView.swift in Sources */,
 				9398877B2A5500E700C29740 /* NewsView.swift in Sources */,
 				93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */,
 				9398877F2A55107E00C29740 /* OverviewView.swift in Sources */,

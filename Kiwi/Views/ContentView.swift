@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-             VStack {
+            VStack {
                 if selectedTab == .overview {
                     OverviewView()
                 } else if selectedTab == .news {
