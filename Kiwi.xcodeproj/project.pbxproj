@@ -28,6 +28,7 @@
 		93AFFA942A5CFC0600A2D6E0 /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = 93AFFA932A5CFC0600A2D6E0 /* SwiftUIFontIcon */; };
 		93B98A312A55392800626756 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B98A302A55392800626756 /* Extensions.swift */; };
 		93B98A332A5548FC00626756 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B98A322A5548FC00626756 /* TransactionModel.swift */; };
+		93BF7E392A651D9B0026C89D /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 93BF7E382A651D9B0026C89D /* Collections */; };
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BF7E392A651D9B0026C89D /* Collections in Frameworks */,
 				93AFFA942A5CFC0600A2D6E0 /* SwiftUIFontIcon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +212,7 @@
 			name = Kiwi;
 			packageProductDependencies = (
 				93AFFA932A5CFC0600A2D6E0 /* SwiftUIFontIcon */,
+				93BF7E382A651D9B0026C89D /* Collections */,
 			);
 			productName = Kiwi;
 			productReference = 93D3817A2A53B7140099514E /* Kiwi.app */;
@@ -241,6 +244,7 @@
 			mainGroup = 93D381712A53B7140099514E;
 			packageReferences = (
 				93AFFA922A5CFC0600A2D6E0 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */,
+				93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 93D3817B2A53B7140099514E /* Products */;
 			projectDirPath = "";
@@ -501,6 +505,14 @@
 				kind = branch;
 			};
 		};
+		93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -508,6 +520,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 93AFFA922A5CFC0600A2D6E0 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */;
 			productName = SwiftUIFontIcon;
+		};
+		93BF7E382A651D9B0026C89D /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

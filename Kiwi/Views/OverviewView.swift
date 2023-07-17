@@ -28,21 +28,27 @@ struct OverviewView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
              // Add transaction button
-                ToolbarItem{
+                ToolbarItem(placement: .navigationBarTrailing){
                     Button(action: {
                         // Button action
 //                        print("pressed")
                     }) {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .imageScale(.large)
+                            Image(systemName: "plus")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                .imageScale(.large)
+                            
                     }
                     .symbolRenderingMode(.palette)
                     .foregroundColor(Color.icon)
                 }
-
+        // Title
+            ToolbarItem(placement: .principal) {
+                Text("🥝")
+                    .font(.title)
             }
+            }
+            
         }
         .navigationViewStyle(.stack)
         
