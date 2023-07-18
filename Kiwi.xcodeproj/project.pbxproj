@@ -33,6 +33,7 @@
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
+		93E1690F2A665C000045C53B /* AddDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1690E2A665C000045C53B /* AddDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		93D3817D2A53B7150099514E /* KiwiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiApp.swift; sourceTree = "<group>"; };
 		93D381812A53B7160099514E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D381842A53B7160099514E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93E1690E2A665C000045C53B /* AddDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				93AFFA8F2A5CE35100A2D6E0 /* Custom Transaction Row */,
 				932483BE2A53BB7C0081FEDC /* Custom Tab Bar */,
 				9375A7202A5E413D00083EAE /* RecentTransactionList.swift */,
+				93E1690E2A665C000045C53B /* AddDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E1690F2A665C000045C53B /* AddDataView.swift in Sources */,
 				93AFFA8E2A5CE10900A2D6E0 /* PreviewData.swift in Sources */,
 				9375A7212A5E413D00083EAE /* RecentTransactionList.swift in Sources */,
 				93B98A332A5548FC00626756 /* TransactionModel.swift in Sources */,

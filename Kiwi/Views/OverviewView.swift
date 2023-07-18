@@ -10,6 +10,8 @@ import SwiftUICharts
 
 struct OverviewView: View {
     @EnvironmentObject var transactionListVM: TransactionListViewModel
+    @State private var isModalPresented = false
+    
     // Demo data for the chart
 //    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
     
@@ -69,13 +71,17 @@ struct OverviewView: View {
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button(action: {
                         // Button action
-//                        print("pressed")
+                        isModalPresented = true
                     }) {
                             Image(systemName: "plus")
                                     .resizable()
                                     .frame(width: 24, height: 24)
                                 .imageScale(.large)
                             
+                    }
+                    .sheet(isPresented: $isModalPresented) {
+                        // Present the AddDataView using the sheet modifier
+                        AddDataView()
                     }
                     .symbolRenderingMode(.palette)
                     .foregroundColor(Color.icon)
