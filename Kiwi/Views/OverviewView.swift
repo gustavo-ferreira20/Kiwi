@@ -6,17 +6,55 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct OverviewView: View {
+    @EnvironmentObject var transactionListVM: TransactionListViewModel
+    // Demo data for the chart
+//    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
+    
     
     var body: some View {
         NavigationView{
             ScrollView{
                 VStack(alignment: .leading, spacing: 24){
-                    //Tittle
+                    //MARK: Title
                     Text("Overview")
                         .font(.title2)
                         .bold()
+                    
+                    //MARK: Chart
+                    let data = transactionListVM.accumulateTransactions()
+                    if !data.isEmpty{
+                        let totalExpenses = data.last?.1 ?? 0
+                        CardView {
+                            VStack(alignment: .leading){
+                                HStack{
+                                    ChartLabel(totalExpenses.formatted(.currency(code: "USD")), type: .title, format: "$%.02f")
+                                    Spacer()
+                                    Button(action: {
+                                        // Code to be executed when the button is tapped
+                                        print("Button tapped! -- Balance Shared")
+                                    }) {
+                                        Image(systemName: "square.and.arrow.up")
+                                            .resizable()
+                                            .frame(width: 20, height: 24)
+                                            .imageScale(.large)
+                                            .foregroundColor(Color.icon)
+                                    }
+                                }
+                                .padding(.trailing,10)
+                                
+                                LineChart()
+                            }
+                            .background(Color.systemBackground)
+
+                        }
+                        .data(data)
+                        .chartStyle(ChartStyle(backgroundColor: Color.systemBackground, foregroundColor: ColorGradient(Color.icon.opacity(0.4), Color.icon)))
+                        .frame(height: 300)
+                    }
+                   
                     
                     //MARK: Transaction List
                     RecentTransactionList()

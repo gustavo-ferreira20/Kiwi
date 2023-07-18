@@ -34,3 +34,16 @@ extension String{
         return parsedDate 
     }
 }
+
+
+extension Date{
+    func formatted() -> String{
+        return self.formatted(.dateTime.year().month().day())
+    }
+}
+
+extension Double{
+    func roundTo2Digits() -> Double{
+        return (self * 100).rounded() / 100
+    }
+}
