@@ -30,6 +30,7 @@
 		93B98A312A55392800626756 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B98A302A55392800626756 /* Extensions.swift */; };
 		93B98A332A5548FC00626756 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B98A322A5548FC00626756 /* TransactionModel.swift */; };
 		93BF7E392A651D9B0026C89D /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 93BF7E382A651D9B0026C89D /* Collections */; };
+		93CD50D42A676D9500A156B2 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CD50D32A676D9500A156B2 /* CategorySelectionView.swift */; };
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		93AFFA902A5CE37E00A2D6E0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		93B98A302A55392800626756 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93B98A322A5548FC00626756 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		93CD50D32A676D9500A156B2 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		93D3817A2A53B7140099514E /* Kiwi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3817D2A53B7150099514E /* KiwiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiApp.swift; sourceTree = "<group>"; };
 		93D381812A53B7160099514E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				932483BE2A53BB7C0081FEDC /* Custom Tab Bar */,
 				9375A7202A5E413D00083EAE /* RecentTransactionList.swift */,
 				93E1690E2A665C000045C53B /* AddDataView.swift */,
+				93CD50D32A676D9500A156B2 /* CategorySelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				9375A7212A5E413D00083EAE /* RecentTransactionList.swift in Sources */,
 				93B98A332A5548FC00626756 /* TransactionModel.swift in Sources */,
 				9398877D2A55010400C29740 /* VideoView.swift in Sources */,
+				93CD50D42A676D9500A156B2 /* CategorySelectionView.swift in Sources */,
 				939887812A55148100C29740 /* ContentView.swift in Sources */,
 				9339CD8C2A53FBEB000A21B1 /* TabBarButton.swift in Sources */,
 				93B98A312A55392800626756 /* Extensions.swift in Sources */,

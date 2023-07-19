@@ -10,9 +10,11 @@ import SwiftUI
 struct AddDataView: View {
     @State private var value: Double = 0
     @State private var name: String = ""
-    @State private var category: String = ""
     @State private var date: Date = Date()
     @State private var valueText: String = ""
+    @State private var selectedCategory: String = categories[0]
+    
+
     
     @State private var isSaved = false
     
@@ -41,7 +43,8 @@ struct AddDataView: View {
                 }
                 
                 Section(header: Text("Category")) {
-                    TextField("Enter Category", text: $category)
+//                    TextField("Enter Category", text: $category)
+                    CategorySelectionView(selectedCategory: $selectedCategory)
                 }
                 
                 Section(header: Text("Date")) {
@@ -62,7 +65,7 @@ struct AddDataView: View {
                     // Send Data to Firestore here
                     print("Value: \(value)")
                     print("Name: \(name)")
-                    print("Category: \(category)")
+                    print("Category: \(selectedCategory)")
                     print("Date: \(date)")
                     
                     self.isSaved = true
