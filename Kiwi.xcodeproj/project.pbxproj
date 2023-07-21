@@ -35,6 +35,8 @@
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
 		93E1690F2A665C000045C53B /* AddDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1690E2A665C000045C53B /* AddDataView.swift */; };
+		93FC8D842A6A4C64002ED99A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93FC8D832A6A4C64002ED99A /* GoogleService-Info.plist */; };
+		93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,7 @@
 		93D381812A53B7160099514E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D381842A53B7160099514E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93E1690E2A665C000045C53B /* AddDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataView.swift; sourceTree = "<group>"; };
+		93FC8D832A6A4C64002ED99A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93894DD82A661F9100719AD2 /* SwiftUICharts in Frameworks */,
+				93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */,
 				93BF7E392A651D9B0026C89D /* Collections in Frameworks */,
 				93AFFA942A5CFC0600A2D6E0 /* SwiftUIFontIcon in Frameworks */,
 			);
@@ -182,6 +186,7 @@
 				9399ECF42A5D2A2D0031B879 /* ViewModel */,
 				93AFFA8C2A5CDB8D00A2D6E0 /* Helpers */,
 				9339CD892A53E427000A21B1 /* Info.plist */,
+				93FC8D832A6A4C64002ED99A /* GoogleService-Info.plist */,
 				93D3817D2A53B7150099514E /* KiwiApp.swift */,
 				932483BC2A53BAD00081FEDC /* Models */,
 				932483BB2A53BAC20081FEDC /* Views */,
@@ -222,6 +227,7 @@
 				93AFFA932A5CFC0600A2D6E0 /* SwiftUIFontIcon */,
 				93BF7E382A651D9B0026C89D /* Collections */,
 				93894DD72A661F9100719AD2 /* SwiftUICharts */,
+				93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */,
 			);
 			productName = Kiwi;
 			productReference = 93D3817A2A53B7140099514E /* Kiwi.app */;
@@ -255,6 +261,7 @@
 				93AFFA922A5CFC0600A2D6E0 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */,
 				93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */,
 				93894DD62A661F9100719AD2 /* XCRemoteSwiftPackageReference "ChartView" */,
+				93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 93D3817B2A53B7140099514E /* Products */;
 			projectDirPath = "";
@@ -277,6 +284,7 @@
 				9339CD772A53E284000A21B1 /* Montserrat-SemiBold.ttf in Resources */,
 				93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */,
 				9339CD7F2A53E284000A21B1 /* Montserrat-Black.ttf in Resources */,
+				93FC8D842A6A4C64002ED99A /* GoogleService-Info.plist in Resources */,
 				9339CD7D2A53E284000A21B1 /* Montserrat-Medium.ttf in Resources */,
 				93D381822A53B7160099514E /* Assets.xcassets in Resources */,
 			);
@@ -533,6 +541,14 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -550,6 +566,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
+		};
+		93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

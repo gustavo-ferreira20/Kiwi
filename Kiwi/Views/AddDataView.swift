@@ -24,8 +24,8 @@ struct AddDataView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Value")) {
-                    TextField("Enter Value", text: Binding(
+                Section(header: Text("Amount")) {
+                    TextField("Enter Amount", text: Binding(
                         get: { valueText },
                         set: { valueText = $0; value = Double($0) ?? 0 }
                     ))
