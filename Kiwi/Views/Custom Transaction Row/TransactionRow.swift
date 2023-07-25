@@ -25,19 +25,9 @@ struct TransactionRow: View {
                     FontIcon.text(.awesome5Solid(code: eachTransaction.icon), fontsize: 24, color: Color.icon)
                 }
             
-//            RoundedRectangle(cornerRadius: 20, style: .continuous)
-//                .fill(Color.icon.opacity(0.3))
-//                .frame(width: 44, height: 44)
-//                .overlay {
-//                    FontIcon.text(.awesome5Solid(code: eachTransaction.icon), fontsize: 24, color: Color.icon)
-//                }
             
             VStack(alignment: .leading, spacing: 6) {
                 //MARK: Transaction Merchant
-//                Text(transaction.merchant)
-//                    .font(.subheadline)
-//                    .bold()
-//                    .lineLimit(1)
                 
                 Text(eachTransaction.name)
                     .font(.subheadline)
@@ -45,10 +35,6 @@ struct TransactionRow: View {
                     .lineLimit(1)
                 
                 //MARK: Transaction Category
-//                Text(transaction.category)
-//                    .font(.footnote)
-//                    .opacity(0.7)
-//                    .lineLimit(1)
                 
                 Text(eachTransaction.category)
                     .font(.footnote)
@@ -56,9 +42,6 @@ struct TransactionRow: View {
                     .lineLimit(1)
                 
                 // MARK: Transaction Date
-//                Text(transaction.dateParsed, format: .dateTime.year().month().day())
-//                    .font(.footnote)
-//                    .foregroundColor(.secondary)
                 
                 Text(eachTransaction.date)
                     .font(.footnote)

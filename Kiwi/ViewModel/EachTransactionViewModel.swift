@@ -87,6 +87,8 @@ class EachTransactionViewModel: ObservableObject{
         return groupedTransactions
 
     }
+    
+    
 //
 //    // Accumulatting the transactions
 //

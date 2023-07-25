@@ -20,7 +20,7 @@ struct EachTransaction: Identifiable, Hashable{
 
 
     var icon: FontAwesomeCode {
-       if let category = Category.all.first(where: {$0.id == categoryId}) {
+        if let category = Category.all.first(where: {$0.name == self.category}) {
             return category.icon
         }
 
@@ -43,8 +43,8 @@ struct EachTransaction: Identifiable, Hashable{
 }
 
 enum TransactionType: String{
-    case debit = "debit"
-    case credit = "credit"
+    case expense = "expense"
+    case income = "income"
 }
 
 struct Category {
