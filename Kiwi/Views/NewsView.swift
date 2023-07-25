@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct NewsView: View {
+//    @ObservedObject var model = EachTransactionViewModel()
+    
     var body: some View {
         Text("News View")
+//        List(model.listOfTransactions) { item in
+//            Text(item.name)
+//        }
     }
+
+
+//    init(){
+//        model.getDataFirestore()
+//    }
 }
 
 struct NewsView_Previews: PreviewProvider {

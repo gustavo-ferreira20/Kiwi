@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct RecentTransactionList: View {
-    @EnvironmentObject var transactionListVM: TransactionListViewModel
-    
+//    @EnvironmentObject var transactionListVM: TransactionListViewModel
+
+     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
+
     var body: some View {
         VStack{
             HStack{
                 //MARK: Header Title
                 Text("Recent Transactions")
                     .bold()
-                
+
                 Spacer()
-                
+
                 //MARK: Header Link
                 NavigationLink {
-                    TransactionListView()
+//                    TransactionListView()
                 } label: {
                     HStack(spacing: 4) {
                         Text("See All")
@@ -32,11 +34,15 @@ struct RecentTransactionList: View {
 
             }
             .padding(.top)
-            
+
             //MARK: Recent Transactions List
-            ForEach(Array(transactionListVM.transactions.prefix(5).enumerated()),id: \.element ){ index,transaction in
-                TransactionRow(transaction: transaction)
-                
+//            ForEach(Array(transactionListVM.transactions.prefix(5).enumerated()),id: \.element ){ index,transaction in
+//                TransactionRow(transaction: transaction)
+
+            ForEach(Array(eachTransactionVM.listOfTransactions.prefix(5).enumerated()),id: \.element ){ index,transaction in
+                TransactionRow(eachTransaction: transaction)
+
+
                 Divider()
                     .opacity(index == 4 ? 0:1)
             }
@@ -46,16 +52,17 @@ struct RecentTransactionList: View {
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 5)
     }
+    
+    
+    
+    init(){
+        eachTransactionVM.getDataFirestore()
+    }
+
 }
 
 struct RecentTransactionList_Previews: PreviewProvider {
     
-    static let transactionListVM: TransactionListViewModel = {
-        let transactionListVM = TransactionListViewModel()
-        transactionListVM.transactions = transactionListPreviewData
-        
-        return transactionListVM
-    }()
     
     static var previews: some View {
         Group{
@@ -63,6 +70,5 @@ struct RecentTransactionList_Previews: PreviewProvider {
             RecentTransactionList()
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(transactionListVM)
     }
 }

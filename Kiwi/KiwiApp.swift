@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct KiwiApp: App {
-    //doing api call for the transactions list
-    @StateObject var transactionListVM = TransactionListViewModel() // Delete this after doing the CRUD
+    
+    init(){
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(transactionListVM) // delete this after do the CRUD
         }
     }
 }
