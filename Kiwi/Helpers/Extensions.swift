@@ -47,3 +47,11 @@ extension Double{
         return (self * 100).rounded() / 100
     }
 }
+
+extension Double{
+
+    
+    func doubleToString() -> String {
+        return String(format: "%.2f", self)
+        }
+}

@@ -98,9 +98,6 @@ struct OverviewView: View {
         .navigationViewStyle(.stack)
     }
 
-//    init(){
-//        eachTransactionVM.getDataFirestore()
-//    }
     
 }
 

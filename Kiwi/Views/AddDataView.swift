@@ -14,7 +14,8 @@ struct AddDataView: View {
     @State private var valueText: String = ""
     @State private var selectedCategory: String = categories[0]
     
-
+    
+    @ObservedObject var eachTransactionVM = EachTransactionViewModel()
     
     @State private var isSaved = false
     
@@ -67,13 +68,21 @@ struct AddDataView: View {
                     print("Name: \(name)")
                     print("Category: \(selectedCategory)")
                     print("Date: \(date)")
+                    print("Final new date String: \(date.formatted())")
+                    print("new Double: \(value.doubleToString())")
                     
+                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted())
+                    //Clear the textfields
+                    value = 0
+                    name = ""
+                                        
                     self.isSaved = true
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Save")
                 }
             )
+
         }
     }
 }

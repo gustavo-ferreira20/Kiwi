@@ -19,10 +19,27 @@ class EachTransactionViewModel: ObservableObject{
     
     private var cancellables = Set<AnyCancellable>()
     
+    func addDataFirestore(amount: String, category: String, name: String, date: String){
+        //Get a reference to the database
+        let db = Firestore.firestore()
+        
+        // Add a document to a collection
+        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date]) { error in
+            // check for errors
+            if error == nil{
+                // No errors
+                
+                // Call getDataFirestore to retrieve latest data
+                self.getDataFirestore()
+            }
+            else{
+                //Handle the error
+            }
+        }
+    }
 
     
     func getDataFirestore(){
-        print("firestore called")
         //Get a reference to the database
         let db = Firestore.firestore()
         // Read the docs at a specific path
@@ -51,16 +68,25 @@ class EachTransactionViewModel: ObservableObject{
         }
     }
     
-//    // Grouping by month
-//
-//    func groupTransactionByMonth() -> TransactionGroup{
-//        guard !listOfTransactions.isEmpty else {return [:] }
-//
-//        let groupedTransactions = TransactionGroup(grouping: listOfTransactions) { $0.month }
-//
-//        return groupedTransactions
-//
-//    }
+    func dateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        // Set the locale to adjust the formatting based on a specific region/language
+         dateFormatter.locale = Locale(identifier: "en_US")
+
+        return dateFormatter.string(from: date)
+    }
+    
+    // Grouping by month
+
+    func groupTransactionByMonth() -> TransactionGroup{
+        guard !listOfTransactions.isEmpty else {return [:] }
+
+        let groupedTransactions = TransactionGroup(grouping: listOfTransactions) { $0.month }
+
+        return groupedTransactions
+
+    }
 //
 //    // Accumulatting the transactions
 //
