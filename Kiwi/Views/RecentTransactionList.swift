@@ -49,13 +49,16 @@ struct RecentTransactionList: View {
         .background(Color.systemBackground)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 5)
+        .onAppear(){
+            eachTransactionVM.getDataFirestore()
+        }
     }
     
     
     
-    init(){
-        eachTransactionVM.getDataFirestore()
-    }
+//    init(){
+//        eachTransactionVM.getDataFirestore()
+//    }
 
 }
 

@@ -17,6 +17,7 @@ struct EachTransaction: Identifiable, Hashable{
     var date: String
     var categoryId: Int?
     var isExpense: Bool?
+    var systemDate: Date
 
 
     var icon: FontAwesomeCode {
@@ -27,9 +28,12 @@ struct EachTransaction: Identifiable, Hashable{
         return .question
     }
 
-        var month: String{
-            dateParsed.formatted(.dateTime.year().month(.wide))
-        }
+//        var month: String{
+//            dateParsed.formatted(.dateTime.year().month(.wide))
+//        }
+    var month: String{
+        dateParsed.formatted(.dateTime.year().month(.wide))
+    }
 
         var dateParsed: Date{
             date.dateParsed()

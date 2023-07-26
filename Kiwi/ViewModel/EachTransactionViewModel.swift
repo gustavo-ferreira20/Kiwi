@@ -16,19 +16,19 @@ typealias TransactionPrefixSum = [(String, Double)]
 
 class EachTransactionViewModel: ObservableObject{
     @Published var listOfTransactions = [EachTransaction]()
-    
+
     private var cancellables = Set<AnyCancellable>()
-    
-    func addDataFirestore(amount: String, category: String, name: String, date: String){
+
+    func addDataFirestore(amount: String, category: String, name: String, date: String, systemDate: Date){
         //Get a reference to the database
         let db = Firestore.firestore()
-        
+
         // Add a document to a collection
-        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date]) { error in
+        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date, "systemDate": systemDate]) { error in
             // check for errors
             if error == nil{
                 // No errors
-                
+
                 // Call getDataFirestore to retrieve latest data
                 self.getDataFirestore()
             }
@@ -38,17 +38,19 @@ class EachTransactionViewModel: ObservableObject{
         }
     }
 
-    
+
     func getDataFirestore(){
         //Get a reference to the database
         let db = Firestore.firestore()
         // Read the docs at a specific path
-        db.collection("transactions").getDocuments { snapshot, error in
+        db.collection("transactions")
+            .order(by: "systemDate", descending: true)
+            .getDocuments { snapshot, error in
             // check for errors
             if error == nil{
                 // No errors
                 if let snapshot = snapshot{
-                    
+
                     // update the list property in the main thread
                     DispatchQueue.main.async {
                         // Get all the docs and create EachTransactions
@@ -56,10 +58,11 @@ class EachTransactionViewModel: ObservableObject{
                             // Create an EachTransaction item for each document returned
                             return EachTransaction(id: doc.documentID, amount: doc["amount"] as? String ?? "",
                                                    category: doc["category"] as? String ?? "",
-                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "")
+                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", systemDate: Date())
+
                         }
                     }
-                    
+
                 }
             }
             else{
@@ -67,7 +70,7 @@ class EachTransactionViewModel: ObservableObject{
             }
         }
     }
-    
+
     func dateToString(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -76,7 +79,7 @@ class EachTransactionViewModel: ObservableObject{
 
         return dateFormatter.string(from: date)
     }
-    
+
     // Grouping by month
 
     func groupTransactionByMonth() -> TransactionGroup{
@@ -87,8 +90,8 @@ class EachTransactionViewModel: ObservableObject{
         return groupedTransactions
 
     }
-    
-    
+
+
 //
 //    // Accumulatting the transactions
 //
@@ -117,3 +120,5 @@ class EachTransactionViewModel: ObservableObject{
 //        return cumulativeSum
 //    }
 }
+
+

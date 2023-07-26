@@ -71,7 +71,7 @@ struct AddDataView: View {
                     print("Final new date String: \(date.formatted())")
                     print("new Double: \(value.doubleToString())")
                     
-                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted())
+                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted(), systemDate: date)
                     //Clear the textfields
                     value = 0
                     name = ""
