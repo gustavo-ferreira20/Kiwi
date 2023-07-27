@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+
+
+
 struct RecentTransactionList: View {
 //    @EnvironmentObject var transactionListVM: TransactionListViewModel
 
-     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
+    @ObservedObject var eachTransactionVM = EachTransactionViewModel()
 
     var body: some View {
         VStack{
@@ -49,16 +52,18 @@ struct RecentTransactionList: View {
         .background(Color.systemBackground)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 5)
-        .onAppear(){
-            eachTransactionVM.getDataFirestore()
-        }
+//        .onAppear(){
+//            eachTransactionVM.getDataFirestore()
+//        }
+
+
     }
     
     
     
-//    init(){
-//        eachTransactionVM.getDataFirestore()
-//    }
+    init(){
+        eachTransactionVM.getDataFirestore()
+    }
 
 }
 

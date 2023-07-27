@@ -14,12 +14,14 @@ struct AddDataView: View {
     @State private var valueText: String = ""
     @State private var selectedCategory: String = categories[0]
     
-    
+   
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
     
-    @State private var isSaved = false
+
+    @Binding var isDataSaved: Bool 
     
     @Environment(\.presentationMode) var presentationMode
+
 
 
     var body: some View {
@@ -75,8 +77,10 @@ struct AddDataView: View {
                     //Clear the textfields
                     value = 0
                     name = ""
-                                        
-                    self.isSaved = true
+
+                    
+
+                    isDataSaved = true
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Save")
@@ -88,8 +92,11 @@ struct AddDataView: View {
 }
 
 struct AddDataView_Previews: PreviewProvider {
+    @State static var isDataSaved = false 
+   
     static var previews: some View {
-        AddDataView()
+        AddDataView(isDataSaved: $isDataSaved)
+
     }
 }
 

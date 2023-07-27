@@ -14,7 +14,9 @@ struct OverviewView: View {
 //    @EnvironmentObject var eachTransactionVM: EachTransactionViewModel
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
     @State private var isModalPresented = false
+    @State private var isDataSaved = false //*****
     
+
         
     var body: some View {
         NavigationView{
@@ -82,7 +84,7 @@ struct OverviewView: View {
                     }
                     .sheet(isPresented: $isModalPresented) {
                         // Present the AddDataView using the sheet modifier
-                        AddDataView()
+                        AddDataView(isDataSaved: $isDataSaved)
                     }
                     .symbolRenderingMode(.palette)
                     .foregroundColor(Color.icon)
@@ -96,6 +98,14 @@ struct OverviewView: View {
             
         }
         .navigationViewStyle(.stack)
+        .onChange(of: isDataSaved) { newValue in
+            if newValue{
+                eachTransactionVM.getDataFirestore()
+                isDataSaved = false
+            }
+        } //*******
+
+
     }
 
     
