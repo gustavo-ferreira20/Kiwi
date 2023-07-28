@@ -42,19 +42,7 @@ struct EachTransaction: Identifiable, Hashable{
 //            return 2.0
 //        }
     
-//    var signAmount: String{
-//        return String(isExpense == false ? amount : "-\(amount)")
-//    }
     
-    var signedAmount: Double {
-        if let amountValue = Double(amount) {
-            return isExpense ? -amountValue : amountValue
-        } else {
-            // Handle the case when the amount cannot be converted to Double (invalid value)
-            return 0.0 
-        }
-    }
-
 }
 
 enum TransactionType: String{

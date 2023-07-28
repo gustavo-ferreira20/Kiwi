@@ -18,6 +18,46 @@ class EachTransactionViewModel: ObservableObject{
     @Published var listOfTransactions = [EachTransaction]()
 
     private var cancellables = Set<AnyCancellable>()
+    
+//    func deleteData(eachTransactionToDelete: EachTransaction){
+//        // get a reference to the database
+//        let db = Firestore.firestore()
+//        //Specify the doc to delete
+//        db.collection("transactions").document(eachTransactionToDelete.id).delete()
+//    }
+//
+//    // Function to delete a transaction
+//     func deleteDataFirestore(at offsets: IndexSet) {
+//        // Remove the items from Firebase using the index set
+//        for index in offsets {
+//            let transactionToDelete = listOfTransactions[index]
+//            // Implement the Firebase deletion logic here
+//            deleteData(eachTransactionToDelete: transactionToDelete)
+//            // For example: viewModel.deleteItemFromFirebase(itemToDelete)
+//        }
+//
+//
+//    }
+    
+    // Function to delete a transaction from Firestore
+    func deleteDataFirestore(eachTransactionToDelete: EachTransaction) {
+        // Get a reference to the database
+        let db = Firestore.firestore()
+
+        // Specify the doc to delete
+        db.collection("transactions").document(eachTransactionToDelete.id).delete { error in
+            if let error = error {
+                // Handle the error
+                print("Error deleting document: \(error.localizedDescription)")
+            } else {
+                // Delete successful, update the local list after deletion
+                DispatchQueue.main.async {
+                    self.listOfTransactions.removeAll { $0.id == eachTransactionToDelete.id }
+                }
+            }
+        }
+    }
+
 
     func addDataFirestore(amount: String, category: String, name: String, date: String, isExpense: Bool ,systemDate: Date){
         //Get a reference to the database
@@ -108,7 +148,6 @@ class EachTransactionViewModel: ObservableObject{
     
     // Addinng the sign in fron of each amount
     func signedAmount(isExpense: Bool, value: Double) -> Double{
-        print("signed amount: \(value)")
         return isExpense ? -value : value
     }
     
