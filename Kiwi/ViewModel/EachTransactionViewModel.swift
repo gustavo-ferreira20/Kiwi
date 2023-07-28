@@ -19,12 +19,12 @@ class EachTransactionViewModel: ObservableObject{
 
     private var cancellables = Set<AnyCancellable>()
 
-    func addDataFirestore(amount: String, category: String, name: String, date: String, systemDate: Date){
+    func addDataFirestore(amount: String, category: String, name: String, date: String, isExpense: Bool ,systemDate: Date){
         //Get a reference to the database
         let db = Firestore.firestore()
 
         // Add a document to a collection
-        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date, "systemDate": systemDate]) { error in
+        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date,"isExpense": isExpense ,"systemDate": systemDate]) { error in
             // check for errors
             if error == nil{
                 // No errors
@@ -58,7 +58,7 @@ class EachTransactionViewModel: ObservableObject{
                             // Create an EachTransaction item for each document returned
                             return EachTransaction(id: doc.documentID, amount: doc["amount"] as? String ?? "",
                                                    category: doc["category"] as? String ?? "",
-                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", systemDate: Date())
+                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", isExpense: doc["isExpense"] as? Bool ?? false, systemDate: Date())
 
                         }
                     }
@@ -90,6 +90,39 @@ class EachTransactionViewModel: ObservableObject{
         return groupedTransactions
 
     }
+    
+    
+    func isExpense(category: String) -> Bool{
+        var isExpense = Bool()
+        
+        if category != "Income"{
+            isExpense = true
+            return isExpense
+        }
+        else{
+            isExpense = false
+            return isExpense
+        }
+        
+    }
+    
+    // Addinng the sign in fron of each amount
+    func signedAmount(isExpense: Bool, value: Double) -> Double{
+        print("signed amount: \(value)")
+        return isExpense ? -value : value
+    }
+    
+    
+//    func signedAmount(isExpense: Bool) -> Double{
+//        let value = Double()
+//        
+//        if isExpense == true{
+//            return -value
+//        }
+//        else{
+//            return value
+//        }
+//    }
 
 
 //

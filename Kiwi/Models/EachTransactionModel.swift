@@ -16,7 +16,7 @@ struct EachTransaction: Identifiable, Hashable{
     var name: String
     var date: String
     var categoryId: Int?
-    var isExpense: Bool?
+    var isExpense: Bool
     var systemDate: Date
 
 
@@ -28,9 +28,7 @@ struct EachTransaction: Identifiable, Hashable{
         return .question
     }
 
-//        var month: String{
-//            dateParsed.formatted(.dateTime.year().month(.wide))
-//        }
+
     var month: String{
         dateParsed.formatted(.dateTime.year().month(.wide))
     }
@@ -39,10 +37,23 @@ struct EachTransaction: Identifiable, Hashable{
             date.dateParsed()
         }
 
-        var signedAmount: Double{
-//            return type == TransactionType.credit.rawValue ? amount : -amount
-            return 2.0
+//        var signedAmount: Double{
+////            return type == TransactionType.credit.rawValue ? amount : -amount
+//            return 2.0
+//        }
+    
+//    var signAmount: String{
+//        return String(isExpense == false ? amount : "-\(amount)")
+//    }
+    
+    var signedAmount: Double {
+        if let amountValue = Double(amount) {
+            return isExpense ? -amountValue : amountValue
+        } else {
+            // Handle the case when the amount cannot be converted to Double (invalid value)
+            return 0.0 
         }
+    }
 
 }
 

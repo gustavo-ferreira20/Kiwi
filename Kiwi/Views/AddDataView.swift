@@ -73,12 +73,17 @@ struct AddDataView: View {
                     print("Final new date String: \(date.formatted())")
                     print("new Double: \(value.doubleToString())")
                     
-                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted(), systemDate: date)
+                   let isExpense = eachTransactionVM.isExpense(category: selectedCategory)
+                    
+                    value = eachTransactionVM.signedAmount(isExpense: isExpense, value: value)
+                    
+                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted(), isExpense: isExpense,systemDate: date)
+                    
+                    
                     //Clear the textfields
                     value = 0
                     name = ""
-
-                    
+                    selectedCategory = categories[0]
 
                     isDataSaved = true
                     self.presentationMode.wrappedValue.dismiss()
