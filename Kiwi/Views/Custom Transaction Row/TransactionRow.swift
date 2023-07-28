@@ -53,7 +53,7 @@ struct TransactionRow: View {
                 //MARK: Transaction amount
                 Text("$" + eachTransaction.amount)
                     .bold()
-//                    .foregroundColor(eachTransaction.type == TransactionType.credit.rawValue ? Color.text : .primary)
+                    .foregroundColor(eachTransaction.isExpense == true ? Color.red : .icon)
                 
                 //MARK: Transaction Location
 //                Text(transaction.location)
