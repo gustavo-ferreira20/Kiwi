@@ -189,8 +189,16 @@ class EachTransactionViewModel: ObservableObject{
 
         for transaction in sortedTransactions {
             let signedAmount = self.signedAmount(isExpense: transaction.isExpense, value: transaction.amountDouble)
-            cumulativeSum += signedAmount
-            cumulativeSumData.append(cumulativeSum)
+            if transaction.isExpense == true{
+                cumulativeSum -= signedAmount
+                cumulativeSumData.append(cumulativeSum)
+            }
+            else{
+                cumulativeSum += signedAmount
+                cumulativeSumData.append(cumulativeSum)
+            }
+//            cumulativeSum += signedAmount
+//            cumulativeSumData.append(cumulativeSum)
         }
 
         return cumulativeSumData
