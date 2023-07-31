@@ -197,17 +197,12 @@ class EachTransactionViewModel: ObservableObject{
                 cumulativeSum += signedAmount
                 cumulativeSumData.append(cumulativeSum)
             }
-//            cumulativeSum += signedAmount
-//            cumulativeSumData.append(cumulativeSum)
+
         }
 
         return cumulativeSumData
     }
 
-    // Helper function to round a double to two decimal places
-    private func roundTo2Digits(_ value: Double) -> Double {
-        return (value * 100).rounded() / 100
-    }
 }
 
 
