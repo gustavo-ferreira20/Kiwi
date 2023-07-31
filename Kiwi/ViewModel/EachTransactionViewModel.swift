@@ -151,17 +151,6 @@ class EachTransactionViewModel: ObservableObject{
         return isExpense ? -value : value
     }
     
-    
-//    func signedAmount(isExpense: Bool) -> Double{
-//        let value = Double()
-//        
-//        if isExpense == true{
-//            return -value
-//        }
-//        else{
-//            return value
-//        }
-//    }
 
 
 //
@@ -174,14 +163,14 @@ class EachTransactionViewModel: ObservableObject{
 //        let today = "02/18/2022".dateParsed()
 //        let dateInterval = Calendar.current.dateInterval(of: .month, for: today)!
 //
-////        print("dateInterval", dateInterval)
+//        print("dateInterval", dateInterval)
 //
 //        var sum: Double = .zero
 //        var cumulativeSum = TransactionPrefixSum()
 //
 //        for date in stride(from: dateInterval.start, to: today, by: 60*60*24){
 //            let dailyExpenses = listOfTransactions.filter{ $0.dateParsed == date && ($0.isExpense != nil) }
-//            let dailyTotal = dailyExpenses.reduce(0) {$0 - $1.signedAmount}
+//            let dailyTotal = dailyExpenses.reduce(0) {$0 - $1.amountDouble}
 //
 //            sum += dailyTotal
 //            sum = sum.roundTo2Digits()
@@ -191,6 +180,26 @@ class EachTransactionViewModel: ObservableObject{
 //
 //        return cumulativeSum
 //    }
+//    
+    // Calculate the cumulative sum of transaction amounts
+    func getCumulativeSumData() -> [Double] {
+        let sortedTransactions = listOfTransactions.sorted { $0.systemDate < $1.systemDate }
+        var cumulativeSum = 0.0
+        var cumulativeSumData = [Double]()
+
+        for transaction in sortedTransactions {
+            let signedAmount = self.signedAmount(isExpense: transaction.isExpense, value: transaction.amountDouble)
+            cumulativeSum += signedAmount
+            cumulativeSumData.append(cumulativeSum)
+        }
+
+        return cumulativeSumData
+    }
+
+    // Helper function to round a double to two decimal places
+    private func roundTo2Digits(_ value: Double) -> Double {
+        return (value * 100).rounded() / 100
+    }
 }
 
 

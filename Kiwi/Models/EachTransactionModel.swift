@@ -33,15 +33,19 @@ struct EachTransaction: Identifiable, Hashable{
         dateParsed.formatted(.dateTime.year().month(.wide))
     }
 
-        var dateParsed: Date{
-            date.dateParsed()
-        }
+    var dateParsed: Date{
+        date.dateParsed()
+    }
 
 //        var signedAmount: Double{
 ////            return type == TransactionType.credit.rawValue ? amount : -amount
 //            return 2.0
 //        }
     
+    // Convert the amount String to Double
+    var amountDouble: Double {
+        return Double(amount) ?? 0.0
+    }
     
 }
 
