@@ -36,7 +36,6 @@
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
-		93D5AE282A78DFC20067BE9C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 93D5AE272A78DFC20067BE9C /* Alamofire */; };
 		93E1690F2A665C000045C53B /* AddDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1690E2A665C000045C53B /* AddDataView.swift */; };
 		93FC8D842A6A4C64002ED99A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93FC8D832A6A4C64002ED99A /* GoogleService-Info.plist */; };
 		93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */; };
@@ -84,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D5AE282A78DFC20067BE9C /* Alamofire in Frameworks */,
 				93894DD82A661F9100719AD2 /* SwiftUICharts in Frameworks */,
 				93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */,
 				93BF7E392A651D9B0026C89D /* Collections in Frameworks */,
@@ -250,7 +248,6 @@
 				93BF7E382A651D9B0026C89D /* Collections */,
 				93894DD72A661F9100719AD2 /* SwiftUICharts */,
 				93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */,
-				93D5AE272A78DFC20067BE9C /* Alamofire */,
 			);
 			productName = Kiwi;
 			productReference = 93D3817A2A53B7140099514E /* Kiwi.app */;
@@ -285,7 +282,6 @@
 				93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */,
 				93894DD62A661F9100719AD2 /* XCRemoteSwiftPackageReference "ChartView" */,
 				93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 93D3817B2A53B7140099514E /* Products */;
 			projectDirPath = "";
@@ -571,14 +567,6 @@
 				minimumVersion = 1.0.4;
 			};
 		};
-		93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -604,11 +592,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
-		};
-		93D5AE272A78DFC20067BE9C /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -55,7 +55,8 @@ struct TransactionRow: View {
                     .foregroundColor(eachTransaction.isExpense == true ? Color.red : .icon)
                 
                 //MARK: Transaction Location
-//                Text(transaction.location)
+                Text(eachTransaction.countryName.replacingOccurrences(of: eachTransaction.countryName, with: eachTransaction.countryName.emojiFlag(country: eachTransaction.countryName)))
+                    .padding(5)
             
 
             }
