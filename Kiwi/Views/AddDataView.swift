@@ -12,11 +12,12 @@ struct AddDataView: View {
     @State private var name: String = ""
     @State private var date: Date = Date()
     @State private var valueText: String = ""
+    @State private var country: String = "could not find your location"
     @State private var selectedCategory: String = categories[0]
     
    
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
-    
+    @ObservedObject var locationVM = LocationViewModel()
 
     @Binding var isDataSaved: Bool 
     
@@ -73,11 +74,15 @@ struct AddDataView: View {
                     print("Final new date String: \(date.formatted())")
                     print("new Double: \(value.doubleToString())")
                     
+                    
+                    if let countryName = locationVM.country{
+                        self.country = countryName
+                    }
                    let isExpense = eachTransactionVM.isExpense(category: selectedCategory)
                     
                     value = eachTransactionVM.signedAmount(isExpense: isExpense, value: value)
                     
-                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted(), isExpense: isExpense,systemDate: date)
+                    eachTransactionVM.addDataFirestore(amount: value.doubleToString(), category: selectedCategory, name: name, date: date.formatted(), isExpense: isExpense,systemDate: date, countryName: country)
                     
                     
                     //Clear the textfields
@@ -93,6 +98,9 @@ struct AddDataView: View {
             )
 
         }
+        .onAppear(){
+            locationVM.fetchCountryName()
+        }//***********************
     }
 }
 

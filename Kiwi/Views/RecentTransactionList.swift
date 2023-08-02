@@ -63,6 +63,7 @@ struct RecentTransactionList: View {
     
     init(){
         eachTransactionVM.getDataFirestore()
+//        eachTransactionVM.fetchCountryNameForTransactions()
     }
 
 }

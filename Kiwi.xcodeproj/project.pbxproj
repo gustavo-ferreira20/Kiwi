@@ -18,6 +18,7 @@
 		9339CD822A53E284000A21B1 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD702A53E283000A21B1 /* Montserrat-ExtraLight.ttf */; };
 		9339CD882A53E284000A21B1 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD762A53E284000A21B1 /* Montserrat-Thin.ttf */; };
 		9339CD8C2A53FBEB000A21B1 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339CD8B2A53FBEB000A21B1 /* TabBarButton.swift */; };
+		937532E82A789F1D00F5AB70 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937532E72A789F1D00F5AB70 /* LocationViewModel.swift */; };
 		9375A7212A5E413D00083EAE /* RecentTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375A7202A5E413D00083EAE /* RecentTransactionList.swift */; };
 		93894DD82A661F9100719AD2 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 93894DD72A661F9100719AD2 /* SwiftUICharts */; };
 		9398877B2A5500E700C29740 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9398877A2A5500E700C29740 /* NewsView.swift */; };
@@ -35,6 +36,7 @@
 		93D3817E2A53B7150099514E /* KiwiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3817D2A53B7150099514E /* KiwiApp.swift */; };
 		93D381822A53B7160099514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381812A53B7160099514E /* Assets.xcassets */; };
 		93D381852A53B7160099514E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D381842A53B7160099514E /* Preview Assets.xcassets */; };
+		93D5AE282A78DFC20067BE9C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 93D5AE272A78DFC20067BE9C /* Alamofire */; };
 		93E1690F2A665C000045C53B /* AddDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1690E2A665C000045C53B /* AddDataView.swift */; };
 		93FC8D842A6A4C64002ED99A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93FC8D832A6A4C64002ED99A /* GoogleService-Info.plist */; };
 		93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */; };
@@ -55,6 +57,7 @@
 		9339CD762A53E284000A21B1 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		9339CD892A53E427000A21B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9339CD8B2A53FBEB000A21B1 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		937532E72A789F1D00F5AB70 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		9375A7202A5E413D00083EAE /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		9398877A2A5500E700C29740 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		9398877C2A55010400C29740 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D5AE282A78DFC20067BE9C /* Alamofire in Frameworks */,
 				93894DD82A661F9100719AD2 /* SwiftUICharts in Frameworks */,
 				93FC8D872A6A4EF6002ED99A /* FirebaseFirestore in Frameworks */,
 				93BF7E392A651D9B0026C89D /* Collections in Frameworks */,
@@ -154,6 +158,7 @@
 			children = (
 				9399ECF62A5D2A6D0031B879 /* TransactionListViewModel.swift */,
 				93FC8D8A2A6A635D002ED99A /* EachTransactionViewModel.swift */,
+				937532E72A789F1D00F5AB70 /* LocationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				93BF7E382A651D9B0026C89D /* Collections */,
 				93894DD72A661F9100719AD2 /* SwiftUICharts */,
 				93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */,
+				93D5AE272A78DFC20067BE9C /* Alamofire */,
 			);
 			productName = Kiwi;
 			productReference = 93D3817A2A53B7140099514E /* Kiwi.app */;
@@ -279,6 +285,7 @@
 				93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */,
 				93894DD62A661F9100719AD2 /* XCRemoteSwiftPackageReference "ChartView" */,
 				93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 93D3817B2A53B7140099514E /* Products */;
 			projectDirPath = "";
@@ -317,6 +324,7 @@
 				93FC8D892A6A5C69002ED99A /* EachTransactionModel.swift in Sources */,
 				93E1690F2A665C000045C53B /* AddDataView.swift in Sources */,
 				93AFFA8E2A5CE10900A2D6E0 /* PreviewData.swift in Sources */,
+				937532E82A789F1D00F5AB70 /* LocationViewModel.swift in Sources */,
 				9375A7212A5E413D00083EAE /* RecentTransactionList.swift in Sources */,
 				93FC8D8B2A6A635D002ED99A /* EachTransactionViewModel.swift in Sources */,
 				93B98A332A5548FC00626756 /* TransactionModel.swift in Sources */,
@@ -465,6 +473,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kiwi/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show nearby transactions based on your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -495,6 +504,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kiwi/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show nearby transactions based on your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -561,6 +571,14 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		93FC8D852A6A4EF6002ED99A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -586,6 +604,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 93BF7E372A651D9B0026C89D /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
+		};
+		93D5AE272A78DFC20067BE9C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93D5AE262A78DFC20067BE9C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		93FC8D862A6A4EF6002ED99A /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

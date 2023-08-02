@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct NewsView: View {
-//    @ObservedObject var model = EachTransactionViewModel()
+    @StateObject private var locationViewModel = LocationViewModel()
     
     var body: some View {
         Text("News View")
-//        List(model.listOfTransactions) { item in
-//            Text(item.name)
-//        }
+
+        VStack {
+            if let country = locationViewModel.country {
+                Text("Your current country: \(country)")
+            } else {
+                Text("Loading...")
+                    .onAppear {
+                        locationViewModel.fetchCountryName()
+
+                    }
+            }
+        }
+        
     }
 
 
-//    init(){
-//        model.getDataFirestore()
-//    }
+
 }
 
 struct NewsView_Previews: PreviewProvider {

@@ -9,36 +9,20 @@ import Foundation
 import Firebase
 import Combine
 import Collections
+import CoreLocation
 
 typealias TransactionGroup = OrderedDictionary<String, [EachTransaction]>
-typealias TransactionPrefixSum = [(String, Double)]
+//typealias TransactionPrefixSum = [(String, Double)]
 
 
 class EachTransactionViewModel: ObservableObject{
-    @Published var listOfTransactions = [EachTransaction]()
 
-    private var cancellables = Set<AnyCancellable>()
-    
-//    func deleteData(eachTransactionToDelete: EachTransaction){
-//        // get a reference to the database
-//        let db = Firestore.firestore()
-//        //Specify the doc to delete
-//        db.collection("transactions").document(eachTransactionToDelete.id).delete()
-//    }
-//
-//    // Function to delete a transaction
-//     func deleteDataFirestore(at offsets: IndexSet) {
-//        // Remove the items from Firebase using the index set
-//        for index in offsets {
-//            let transactionToDelete = listOfTransactions[index]
-//            // Implement the Firebase deletion logic here
-//            deleteData(eachTransactionToDelete: transactionToDelete)
-//            // For example: viewModel.deleteItemFromFirebase(itemToDelete)
-//        }
-//
-//
-//    }
-    
+    @Published var listOfTransactions = [EachTransaction]()
+    private var locationViewModel = LocationViewModel()
+
+
+
+
     // Function to delete a transaction from Firestore
     func deleteDataFirestore(eachTransactionToDelete: EachTransaction) {
         // Get a reference to the database
@@ -59,12 +43,12 @@ class EachTransactionViewModel: ObservableObject{
     }
 
 
-    func addDataFirestore(amount: String, category: String, name: String, date: String, isExpense: Bool ,systemDate: Date){
+    func addDataFirestore(amount: String, category: String, name: String, date: String, isExpense: Bool ,systemDate: Date, countryName: String){
         //Get a reference to the database
         let db = Firestore.firestore()
 
         // Add a document to a collection
-        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date,"isExpense": isExpense ,"systemDate": systemDate]) { error in
+        db.collection("transactions").addDocument(data: ["amount": amount, "category": category, "name": name, "date": date,"isExpense": isExpense ,"systemDate": systemDate, "countryName": countryName]) { error in
             // check for errors
             if error == nil{
                 // No errors
@@ -98,7 +82,7 @@ class EachTransactionViewModel: ObservableObject{
                             // Create an EachTransaction item for each document returned
                             return EachTransaction(id: doc.documentID, amount: doc["amount"] as? String ?? "",
                                                    category: doc["category"] as? String ?? "",
-                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", isExpense: doc["isExpense"] as? Bool ?? false, systemDate: Date())
+                                                   name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", isExpense: doc["isExpense"] as? Bool ?? false, systemDate: Date(), countryName: doc["countryName"] as? String ?? "")
 
                         }
                     }
@@ -130,11 +114,11 @@ class EachTransactionViewModel: ObservableObject{
         return groupedTransactions
 
     }
-    
-    
+
+
     func isExpense(category: String) -> Bool{
         var isExpense = Bool()
-        
+
         if category != "Income"{
             isExpense = true
             return isExpense
@@ -143,44 +127,15 @@ class EachTransactionViewModel: ObservableObject{
             isExpense = false
             return isExpense
         }
-        
+
     }
-    
+
     // Addinng the sign in fron of each amount
     func signedAmount(isExpense: Bool, value: Double) -> Double{
         return isExpense ? -value : value
     }
-    
 
 
-//
-//    // Accumulatting the transactions
-//
-//    func accumulateTransactions() -> TransactionPrefixSum{
-////        print("accumulateTransactions")
-//        guard !listOfTransactions.isEmpty else {return [] }
-//
-//        let today = "02/18/2022".dateParsed()
-//        let dateInterval = Calendar.current.dateInterval(of: .month, for: today)!
-//
-//        print("dateInterval", dateInterval)
-//
-//        var sum: Double = .zero
-//        var cumulativeSum = TransactionPrefixSum()
-//
-//        for date in stride(from: dateInterval.start, to: today, by: 60*60*24){
-//            let dailyExpenses = listOfTransactions.filter{ $0.dateParsed == date && ($0.isExpense != nil) }
-//            let dailyTotal = dailyExpenses.reduce(0) {$0 - $1.amountDouble}
-//
-//            sum += dailyTotal
-//            sum = sum.roundTo2Digits()
-//            cumulativeSum.append((date.formatted(), sum))
-////            print(date.formatted(), "dailyTotal:", dailyTotal, "sum:", sum)
-//        }
-//
-//        return cumulativeSum
-//    }
-//    
     // Calculate the cumulative sum of transaction amounts
     func getCumulativeSumData() -> [Double] {
         let sortedTransactions = listOfTransactions.sorted { $0.systemDate < $1.systemDate }
@@ -204,5 +159,7 @@ class EachTransactionViewModel: ObservableObject{
     }
 
 }
+
+
 
 

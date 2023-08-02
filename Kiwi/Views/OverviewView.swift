@@ -11,11 +11,9 @@ import SwiftUICharts
 import Firebase
 
 struct OverviewView: View {
-//    @EnvironmentObject var transactionListVM: TransactionListViewModel
-//    @EnvironmentObject var eachTransactionVM: EachTransactionViewModel
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
     @State private var isModalPresented = false
-    @State private var isDataSaved = false //*****
+    @State private var isDataSaved = false
 
 
 
@@ -39,7 +37,6 @@ struct OverviewView: View {
                 .frame(maxWidth: .infinity)
                 .onAppear(){
                     eachTransactionVM.getDataFirestore()
-                    print("overview")
                 }
             }
             .background(Color.background)

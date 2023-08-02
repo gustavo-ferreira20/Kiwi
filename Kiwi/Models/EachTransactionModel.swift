@@ -15,10 +15,10 @@ struct EachTransaction: Identifiable, Hashable{
     var category: String
     var name: String
     var date: String
-    var categoryId: Int?
     var isExpense: Bool
     var systemDate: Date
-
+    var countryName: String 
+   
 
     var icon: FontAwesomeCode {
         if let category = Category.all.first(where: {$0.name == self.category}) {
@@ -37,10 +37,6 @@ struct EachTransaction: Identifiable, Hashable{
         date.dateParsed()
     }
 
-//        var signedAmount: Double{
-////            return type == TransactionType.credit.rawValue ? amount : -amount
-//            return 2.0
-//        }
     
     // Convert the amount String to Double
     var amountDouble: Double {

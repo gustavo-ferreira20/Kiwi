@@ -12,7 +12,6 @@ struct TransactionRow: View {
 //    var transaction: Transaction
      var eachTransaction: EachTransaction
     
-//    @ObservedObject var eachTransactionVM = EachTransactionViewModel()
 
     
     var body: some View {
@@ -57,6 +56,8 @@ struct TransactionRow: View {
                 
                 //MARK: Transaction Location
 //                Text(transaction.location)
+            
+
             }
 
             
