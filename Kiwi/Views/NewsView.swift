@@ -8,22 +8,10 @@
 import SwiftUI
 
 struct NewsView: View {
-    @StateObject private var locationViewModel = LocationViewModel()
     
     var body: some View {
         Text("News View")
 
-        VStack {
-            if let country = locationViewModel.country {
-                Text("Your current country: \(country)")
-            } else {
-                Text("Loading...")
-                    .onAppear {
-                        locationViewModel.fetchCountryName()
-
-                    }
-            }
-        }
         
     }
 
