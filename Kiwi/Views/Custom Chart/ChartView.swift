@@ -10,15 +10,18 @@ import SwiftUICharts
 
 
 struct ChartView: View {
-    
+
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
-    
-    
+    @State private var isShareSheetPresented = false
+    @State private var stringData = ""
+
+
     var body: some View {
         //MARK: Chart
         let data = eachTransactionVM.getCumulativeSumData()
         if !data.isEmpty{
             let totalExpenses = data.last
+
             CardView {
                 VStack(alignment: .leading){
                     HStack{
@@ -26,7 +29,9 @@ struct ChartView: View {
                         Spacer()
                         Button(action: {
                             // Code to be executed when the button is tapped
-                            print("Button tapped! -- Balance Shared")
+                            stringData = "My current balance is: \(totalExpenses ?? 0.0)"
+                                print(stringData)
+                            isShareSheetPresented = true
                         }) {
                             Image(systemName: "square.and.arrow.up")
                                 .resizable()
@@ -36,6 +41,9 @@ struct ChartView: View {
                         }
                     }
                     .padding(.trailing,10)
+                    .sheet(isPresented: $isShareSheetPresented) {
+                        ShareStringView(stringData: $stringData)
+                    }
 
                     LineChart()
                 }
@@ -47,11 +55,12 @@ struct ChartView: View {
             .frame(height: 300)
         }
     }
-    
+
     init(){
         eachTransactionVM.getDataFirestore()
     }
 }
+
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
