@@ -45,9 +45,9 @@ struct OverviewView: View {
                 .padding()
                 .frame(maxWidth: .infinity)
                 .onAppear(){
-                    print("OverviewView appeared")
+                    
                     eachTransactionVM.getDataFirestore()
-                    eachTransactionVM.requestAuthorization()
+//                    eachTransactionVM.requestAuthorization()
                     UIApplication.shared.applicationIconBadgeNumber = 0
                     
                 }

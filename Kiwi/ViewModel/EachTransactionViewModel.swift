@@ -165,19 +165,19 @@ class EachTransactionViewModel: ObservableObject{
         return cumulativeSumData
     }
     
-    // Requesting authorization to display notifications
-    func requestAuthorization() {
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-            UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
-                if let error = error{
-                    print("ERROR: \(error)")
-                }
-                else{
-//                    print("SUCCESS")
-                }
-            }
-        
-    }
+//    // Requesting authorization to display notifications
+//    func requestAuthorization() {
+//        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+//            UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
+//                if let error = error{
+//                    print("ERROR: \(error)")
+//                }
+//                else{
+////                    print("SUCCESS")
+//                }
+//            }
+//        
+//    }
     
 //    ChartLabel value
     func chartLabel() -> Double{
@@ -187,47 +187,35 @@ class EachTransactionViewModel: ObservableObject{
     
   
     // Sending a notification
+    
     func sendPushNotificationIfCumulativeSumIsNegative() {
-//        let data = getCumulativeSumData()
-//        if !data.isEmpty {
-//            let totalExpenses = data.last ?? 0.0
-//
-//            // Check if the totalExpenses is negative
-//            if totalExpenses < 0 {
-                // Create a notification content
-                let content = UNMutableNotificationContent()
-                content.title = "🚨🚨Your Balance is negative🚨🚨"
-                content.body = "Please, check the News and Videos tab for help with your finance."
-                content.sound = .default
-                content.badge = 1
+        let chartLabelValue = chartLabel()
 
-                // Create a trigger to show the notification immediately
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = UNNotificationRequest(identifier: "balanceNegative" , content: content, trigger: trigger)
-                print("notification called")
-                // Add the request to the notification center
-                let center = UNUserNotificationCenter.current()
-                center.add(request) { error in
-                    if let error = error {
-                        print("Error sending notification: \(error.localizedDescription)")
-                    }
+        if chartLabelValue < 0 {
+            // Create a notification content
+            let content = UNMutableNotificationContent()
+            content.title = "🚨🚨 Your Balance is negative 🚨🚨"
+            content.body = "Please check the News and Videos tab for help with your finances."
+            content.sound = .default
+            content.badge = 1
+
+            // Create a trigger to show the notification immediately
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: "balanceNegative", content: content, trigger: trigger)
+
+            // Add the request to the notification center
+            let center = UNUserNotificationCenter.current()
+            center.add(request) { error in
+                if let error = error {
+                    print("Error sending notification: \(error.localizedDescription)")
                 }
-//            }
-//
-//        }
+            }
+        }
+        
     }
+
     
-    
-//    func updateTotalExpensesAndNotify() {
-//        // Calculate the new total expenses based on the updated transactions
-//        let cumulativeSumData = getCumulativeSumData()
-//        let newTotalExpenses = cumulativeSumData.last ?? 0.0
-//
-//        // Send a notification with the new total expenses
-//        NotificationCenter.default.post(name: Notification.Name("NewTotalExpenses"), object: newTotalExpenses)
-//        
-//    }
-    
+        
 
 
 }
