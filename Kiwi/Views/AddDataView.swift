@@ -15,7 +15,9 @@ struct AddDataView: View {
     @State private var country: String = "could not find your location"
     @State private var selectedCategory: String = categories[0]
     
-   
+
+    
+    
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
     @ObservedObject var locationVM = LocationViewModel()
 
@@ -89,8 +91,12 @@ struct AddDataView: View {
                     value = 0
                     name = ""
                     selectedCategory = categories[0]
+                    
+//                    eachTransactionVM.updateTotalExpensesAndNotify()
 
-                    isDataSaved = true
+                    DispatchQueue.main.async {
+                        self.isDataSaved = true // Modify the binding on the main thread
+                    }
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Save")
@@ -100,18 +106,22 @@ struct AddDataView: View {
         }
         .onAppear(){
             locationVM.fetchCountryName()
-        }//***********************
+        }
+        
     }
 }
 
 struct AddDataView_Previews: PreviewProvider {
-    @State static var isDataSaved = false 
-   
+    @State static var isDataSaved = false
+
     static var previews: some View {
         AddDataView(isDataSaved: $isDataSaved)
 
     }
 }
+
+
+
 
 
 

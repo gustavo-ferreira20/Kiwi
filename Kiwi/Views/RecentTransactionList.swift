@@ -11,9 +11,9 @@ import SwiftUI
 
 
 struct RecentTransactionList: View {
-//    @EnvironmentObject var transactionListVM: TransactionListViewModel
 
-    @ObservedObject var eachTransactionVM = EachTransactionViewModel()
+    
+    var transactions: [EachTransaction]
 
     var body: some View {
         VStack{
@@ -40,7 +40,7 @@ struct RecentTransactionList: View {
 
             //MARK: Recent Transactions List
 
-            ForEach(Array(eachTransactionVM.listOfTransactions.prefix(5).enumerated()),id: \.element ){ index,transaction in
+            ForEach(Array(transactions.prefix(5).enumerated()), id: \.element.id) { index, transaction in
                 TransactionRow(eachTransaction: transaction)
 
 
@@ -52,29 +52,31 @@ struct RecentTransactionList: View {
         .background(Color.systemBackground)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 5)
-//        .onAppear(){
-//            eachTransactionVM.getDataFirestore()
-//        }
 
 
     }
     
     
     
-    init(){
-        eachTransactionVM.getDataFirestore()
-//        eachTransactionVM.fetchCountryNameForTransactions()
-    }
+//    init(){
+//        eachTransactionVM.getDataFirestore()
+//    }
 
 }
 
+
+
 struct RecentTransactionList_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
-        Group{
-            RecentTransactionList()
-            RecentTransactionList()
+        let sampleTransactions = [
+            EachTransaction(id: "1", amount: "100", category: "Food", name: "Groceries", date: "2023-08-01", isExpense: true, systemDate: Date(), countryName: "United States"),
+            EachTransaction(id: "2", amount: "50", category: "Entertainment", name: "Movies", date: "2023-08-02", isExpense: true, systemDate: Date(), countryName: "United States"),
+            EachTransaction(id: "3", amount: "200", category: "Salary", name: "Monthly Income", date: "2023-08-03", isExpense: false, systemDate: Date(), countryName: "United States")
+        ]
+
+        Group {
+            RecentTransactionList(transactions: sampleTransactions)
+            RecentTransactionList(transactions: sampleTransactions)
                 .preferredColorScheme(.dark)
         }
     }

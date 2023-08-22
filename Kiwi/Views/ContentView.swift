@@ -16,7 +16,7 @@ enum Tabs: Int {
 
 struct ContentView: View {
     @State private var selectedTab: Tabs = .overview
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -39,4 +39,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 

@@ -12,9 +12,10 @@ import Firebase
 
 struct OverviewView: View {
     @ObservedObject var eachTransactionVM = EachTransactionViewModel()
+    
     @State private var isModalPresented = false
     @State private var isDataSaved = false
-
+    
 
 
     var body: some View {
@@ -27,16 +28,28 @@ struct OverviewView: View {
                         .bold()
 
                     //MARK: Chart
-                    ChartView()
+                    
+//                    ChartView(eachTransactionVM: eachTransactionVM, data: eachTransactionVM.getCumulativeSumData(), totalExpenses: eachTransactionVM.chartLabel())
+                    
+                    ChartView(eachTransactionVM: eachTransactionVM, data: eachTransactionVM.getCumulativeSumData(), totalExpenses: eachTransactionVM.chartLabel())
+                        .id(eachTransactionVM.chartLabel())
+                   
 
                     //MARK: Transaction List
-                    RecentTransactionList()
+//                    RecentTransactionList()//*****
+                    
+                    RecentTransactionList(transactions: eachTransactionVM.listOfTransactions)
+
 
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
                 .onAppear(){
+                    print("OverviewView appeared")
                     eachTransactionVM.getDataFirestore()
+                    eachTransactionVM.requestAuthorization()
+                    UIApplication.shared.applicationIconBadgeNumber = 0
+                    
                 }
             }
             .background(Color.background)
@@ -47,6 +60,7 @@ struct OverviewView: View {
                     Button(action: {
                         // Button action
                         isModalPresented = true
+
                     }) {
                             Image(systemName: "plus")
                                     .resizable()
@@ -57,6 +71,7 @@ struct OverviewView: View {
                     .sheet(isPresented: $isModalPresented) {
                         // Present the AddDataView using the sheet modifier
                         AddDataView(isDataSaved: $isDataSaved)
+
                     }
                     .symbolRenderingMode(.palette)
                     .foregroundColor(Color.icon)
@@ -74,6 +89,7 @@ struct OverviewView: View {
             if newValue{
                 eachTransactionVM.getDataFirestore()
                 isDataSaved = false
+                
             }
         }
 
@@ -96,7 +112,6 @@ struct OverviewView_Previews: PreviewProvider {
     }
 
 }
-
 
 
 

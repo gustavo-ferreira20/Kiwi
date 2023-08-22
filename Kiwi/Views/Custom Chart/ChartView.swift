@@ -11,26 +11,29 @@ import SwiftUICharts
 
 struct ChartView: View {
 
-    @ObservedObject var eachTransactionVM = EachTransactionViewModel()
+//    var eachTransactionVM = EachTransactionViewModel()
+    @ObservedObject var eachTransactionVM: EachTransactionViewModel
+
+    var data: [Double]
+    var totalExpenses: Double
+
     @State private var isShareSheetPresented = false
     @State private var stringData = ""
 
 
+
     var body: some View {
         //MARK: Chart
-        let data = eachTransactionVM.getCumulativeSumData()
         if !data.isEmpty{
-            let totalExpenses = data.last
-
             CardView {
                 VStack(alignment: .leading){
                     HStack{
-                        ChartLabel(totalExpenses!.formatted(.currency(code: "USD")), type: .title, format: "$%.02f")
+                        ChartLabel(totalExpenses.formatted(.currency(code: "USD")), type: .title, format: "$%.02f")
                         Spacer()
                         Button(action: {
                             // Code to be executed when the button is tapped
-                            stringData = "My current balance is: \(totalExpenses ?? 0.0)"
-                                print(stringData)
+                            stringData = "My current balance is: \(totalExpenses )"
+                            print(stringData)
                             isShareSheetPresented = true
                         }) {
                             Image(systemName: "square.and.arrow.up")
@@ -46,6 +49,9 @@ struct ChartView: View {
                     }
 
                     LineChart()
+                        .onAppear(){
+
+                        }
                 }
                 .background(Color.systemBackground)
 
@@ -53,17 +59,50 @@ struct ChartView: View {
             .data(data)
             .chartStyle(ChartStyle(backgroundColor: Color.systemBackground, foregroundColor: ColorGradient(Color.icon.opacity(0.4), Color.icon)))
             .frame(height: 300)
+
         }
     }
 
-    init(){
-        eachTransactionVM.getDataFirestore()
-    }
+
 }
+
+
+
+
+
+
+//struct ChartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let data: [Double] = [100, 200, 150, 300, 50] // Sample data for review
+//        let expenses: Double = 10
+//        ChartView(data: data, totalExpenses: expenses)
+//            .previewLayout(.sizeThatFits)
+//            .padding()
+//    }
+//}
+
 
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        let eachTransactionVM = EachTransactionViewModel() // Create an instance of the ViewModel
+        
+        let data: [Double] = [100, 200, 150, 300, 50] // Sample data for review
+        let expenses: Double = 10
+        eachTransactionVM.listOfTransactions = [ /* Add sample transactions here */ ]
+        
+        return ChartView(eachTransactionVM: eachTransactionVM, data: data, totalExpenses: expenses)
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
+
+
+
+
+
+
+
+
+
+
