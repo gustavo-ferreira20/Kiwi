@@ -60,11 +60,13 @@ struct ChartView: View {
             .frame(height: 300)
             .onAppear {
                 // Call the notification function when the view appears
-                eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
+                if eachTransactionVM.chartLabel() < 0.0{
+                    eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
+                }
             }
             .onChange(of: data) { _ in
                 // Call the notification function when the chart data changes
-                eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
+//                eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
             }
 
         }

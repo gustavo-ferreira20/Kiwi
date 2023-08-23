@@ -89,7 +89,6 @@ struct OverviewView: View {
             if newValue{
                 eachTransactionVM.getDataFirestore()
                 isDataSaved = false
-                
             }
         }
 

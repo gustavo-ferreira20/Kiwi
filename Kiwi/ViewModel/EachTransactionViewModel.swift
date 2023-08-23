@@ -191,16 +191,16 @@ class EachTransactionViewModel: ObservableObject{
     func sendPushNotificationIfCumulativeSumIsNegative() {
         let chartLabelValue = chartLabel()
 
-        if chartLabelValue < 0 {
+        if chartLabelValue < 0.0 {
             // Create a notification content
             let content = UNMutableNotificationContent()
             content.title = "🚨🚨 Your Balance is negative 🚨🚨"
             content.body = "Please check the News and Videos tab for help with your finances."
             content.sound = .default
             content.badge = 1
-
+           
             // Create a trigger to show the notification immediately
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
             let request = UNNotificationRequest(identifier: "balanceNegative", content: content, trigger: trigger)
 
             // Add the request to the notification center
@@ -211,6 +211,17 @@ class EachTransactionViewModel: ObservableObject{
                 }
             }
         }
+        
+        
+//        switch chartLabelValue {
+//        case let value where value < 0.0:
+//            print("smaller than zero")
+//        case 0:
+//            print("zero")
+//        default:
+//            print("greater than zero!!!")
+//        }
+
         
     }
 
