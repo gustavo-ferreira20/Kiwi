@@ -184,8 +184,8 @@ class EachTransactionViewModel: ObservableObject{
         
         if chartLabelValue < 0.0 {
             self.notificationContent(title: "🚨🚨 Your Balance is negative 🚨🚨", body: "Please check the News and Videos tab for help with your finances.", identifier: "BalanceNegative")
-            print("below zero")
-        } else if chartLabelValue == 0 || chartLabelValue < 100.0 {
+            
+            } else if chartLabelValue == 0 || chartLabelValue < 100.0 {
             self.notificationContent(title: "Low Balance", body: "Follow our advices to keep a healthy financial life.", identifier: "BalanceZero")
             
         }
