@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 
+
 struct ChartView: View {
 
     @ObservedObject var eachTransactionVM: EachTransactionViewModel
@@ -18,6 +19,7 @@ struct ChartView: View {
 
     @State private var isShareSheetPresented = false
     @State private var stringData = ""
+    
 
 
 
@@ -58,16 +60,6 @@ struct ChartView: View {
             .data(data)
             .chartStyle(ChartStyle(backgroundColor: Color.systemBackground, foregroundColor: ColorGradient(Color.icon.opacity(0.4), Color.icon)))
             .frame(height: 300)
-            .onAppear {
-                // Call the notification function when the view appears
-                if eachTransactionVM.chartLabel() < 0.0{
-                    eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
-                }
-            }
-            .onChange(of: data) { _ in
-                // Call the notification function when the chart data changes
-//                eachTransactionVM.sendPushNotificationIfCumulativeSumIsNegative()
-            }
 
         }
     }

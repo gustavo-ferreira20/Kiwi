@@ -21,6 +21,7 @@ class EachTransactionViewModel: ObservableObject{
     @Published var listOfTransactions = [EachTransaction]()
     private var locationViewModel = LocationViewModel()
     
+    
 
 
     // Function to delete a transaction from Firestore
@@ -91,7 +92,8 @@ class EachTransactionViewModel: ObservableObject{
                                                    name: doc["name"] as? String ?? "", date: doc["date"] as? String ?? "", isExpense: doc["isExpense"] as? Bool ?? false, systemDate: Date(), countryName: doc["countryName"] as? String ?? "")
 
                         }
-                        
+                        // Checking if it is necessary to send the notification
+                        self.sendPushNotificationIfCumulativeSumIsNegative()
                     }
 
                 }
@@ -165,19 +167,6 @@ class EachTransactionViewModel: ObservableObject{
         return cumulativeSumData
     }
     
-//    // Requesting authorization to display notifications
-//    func requestAuthorization() {
-//        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-//            UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
-//                if let error = error{
-//                    print("ERROR: \(error)")
-//                }
-//                else{
-////                    print("SUCCESS")
-//                }
-//            }
-//        
-//    }
     
 //    ChartLabel value
     func chartLabel() -> Double{
@@ -188,46 +177,54 @@ class EachTransactionViewModel: ObservableObject{
   
     // Sending a notification
     
+    
     func sendPushNotificationIfCumulativeSumIsNegative() {
         let chartLabelValue = chartLabel()
-
+        
+        
         if chartLabelValue < 0.0 {
-            // Create a notification content
-            let content = UNMutableNotificationContent()
-            content.title = "🚨🚨 Your Balance is negative 🚨🚨"
-            content.body = "Please check the News and Videos tab for help with your finances."
-            content.sound = .default
-            content.badge = 1
-           
-            // Create a trigger to show the notification immediately
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-            let request = UNNotificationRequest(identifier: "balanceNegative", content: content, trigger: trigger)
-
-            // Add the request to the notification center
-            let center = UNUserNotificationCenter.current()
-            center.add(request) { error in
-                if let error = error {
-                    print("Error sending notification: \(error.localizedDescription)")
-                }
-            }
+            self.notificationContent(title: "🚨🚨 Your Balance is negative 🚨🚨", body: "Please check the News and Videos tab for help with your finances.", identifier: "BalanceNegative")
+            print("below zero")
+        } else if chartLabelValue == 0 || chartLabelValue < 100.0 {
+            self.notificationContent(title: "Low Balance", body: "Follow our advices to keep a healthy financial life.", identifier: "BalanceZero")
+            
         }
-        
-        
-//        switch chartLabelValue {
-//        case let value where value < 0.0:
-//            print("smaller than zero")
-//        case 0:
-//            print("zero")
-//        default:
-//            print("greater than zero!!!")
-//        }
-
-        
     }
 
     
-        
 
+    func notificationContent(title: String, body: String, identifier: String) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        // Check if a notification with the same identifier exists
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let matchingRequests = requests.filter { $0.identifier == identifier }
+            
+            if !matchingRequests.isEmpty {
+                // Remove existing notifications with the same identifier
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+            }
+            
+            // Schedule the new notification
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                } else {
+                    print("Notification scheduled successfully.")
+                }
+            }
+        }
+    }
+
+
+        
 
 }
 

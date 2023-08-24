@@ -47,7 +47,6 @@ struct OverviewView: View {
                 .onAppear(){
                     
                     eachTransactionVM.getDataFirestore()
-//                    eachTransactionVM.requestAuthorization()
                     UIApplication.shared.applicationIconBadgeNumber = 0
                     
                 }
