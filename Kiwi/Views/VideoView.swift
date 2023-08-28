@@ -9,7 +9,10 @@ import SwiftUI
 
 struct VideoView: View {
     var body: some View {
-        Text("Videos View")
+//        Text("Videos View")
+        NavigationView{
+            VideoListView()
+        }
     }
 }
 
@@ -18,3 +21,4 @@ struct VideoView_Previews: PreviewProvider {
         VideoView()
     }
 }
+

@@ -29,14 +29,12 @@ struct OverviewView: View {
 
                     //MARK: Chart
                     
-//                    ChartView(eachTransactionVM: eachTransactionVM, data: eachTransactionVM.getCumulativeSumData(), totalExpenses: eachTransactionVM.chartLabel())
                     
                     ChartView(eachTransactionVM: eachTransactionVM, data: eachTransactionVM.getCumulativeSumData(), totalExpenses: eachTransactionVM.chartLabel())
                         .id(eachTransactionVM.chartLabel())
                    
 
                     //MARK: Transaction List
-//                    RecentTransactionList()//*****
                     
                     RecentTransactionList(transactions: eachTransactionVM.listOfTransactions)
 

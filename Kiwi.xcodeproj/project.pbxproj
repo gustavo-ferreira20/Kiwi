@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		932126022A779CFA00BF5919 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932126012A779CFA00BF5919 /* ChartView.swift */; };
 		932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932483BF2A53BDE00081FEDC /* CustomTabBar.swift */; };
+		932FFF1C2A9C65830093C3F0 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FFF1B2A9C65830093C3F0 /* YoutubeVideo.swift */; };
+		932FFF1E2A9C65CF0093C3F0 /* YouTubeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FFF1D2A9C65CF0093C3F0 /* YouTubeService.swift */; };
+		932FFF202A9C667C0093C3F0 /* VideoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FFF1F2A9C667C0093C3F0 /* VideoListView.swift */; };
+		932FFF222A9C682F0093C3F0 /* YouTubeVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FFF212A9C682F0093C3F0 /* YouTubeVideoResponse.swift */; };
+		932FFF242A9C69640093C3F0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FFF232A9C69640093C3F0 /* WebView.swift */; };
 		9331674B2A64E14C0042DEC4 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331674A2A64E14C0042DEC4 /* TransactionListView.swift */; };
 		9339CD772A53E284000A21B1 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */; };
 		9339CD7B2A53E284000A21B1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */; };
@@ -45,6 +50,11 @@
 /* Begin PBXFileReference section */
 		932126012A779CFA00BF5919 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		932483BF2A53BDE00081FEDC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		932FFF1B2A9C65830093C3F0 /* YoutubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		932FFF1D2A9C65CF0093C3F0 /* YouTubeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeService.swift; sourceTree = "<group>"; };
+		932FFF1F2A9C667C0093C3F0 /* VideoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListView.swift; sourceTree = "<group>"; };
+		932FFF212A9C682F0093C3F0 /* YouTubeVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideoResponse.swift; sourceTree = "<group>"; };
+		932FFF232A9C69640093C3F0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		9331674A2A64E14C0042DEC4 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		9339CD652A53E282000A21B1 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		9339CD692A53E283000A21B1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -114,6 +124,8 @@
 				93AFFA8F2A5CE35100A2D6E0 /* Custom Transaction Row */,
 				932483BE2A53BB7C0081FEDC /* Custom Tab Bar */,
 				93EDA99E2A7B6EDC002036E8 /* ShareStringView.swift */,
+				932FFF1F2A9C667C0093C3F0 /* VideoListView.swift */,
+				932FFF232A9C69640093C3F0 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				93FC8D882A6A5C69002ED99A /* EachTransactionModel.swift */,
+				932FFF1B2A9C65830093C3F0 /* YoutubeVideo.swift */,
+				932FFF212A9C682F0093C3F0 /* YouTubeVideoResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +168,7 @@
 			children = (
 				93FC8D8A2A6A635D002ED99A /* EachTransactionViewModel.swift */,
 				937532E72A789F1D00F5AB70 /* LocationViewModel.swift */,
+				932FFF1D2A9C65CF0093C3F0 /* YouTubeService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,17 +332,22 @@
 				93FC8D892A6A5C69002ED99A /* EachTransactionModel.swift in Sources */,
 				93E1690F2A665C000045C53B /* AddDataView.swift in Sources */,
 				93AFFA8E2A5CE10900A2D6E0 /* PreviewData.swift in Sources */,
+				932FFF1E2A9C65CF0093C3F0 /* YouTubeService.swift in Sources */,
 				937532E82A789F1D00F5AB70 /* LocationViewModel.swift in Sources */,
 				9375A7212A5E413D00083EAE /* RecentTransactionList.swift in Sources */,
 				93FC8D8B2A6A635D002ED99A /* EachTransactionViewModel.swift in Sources */,
 				9398877D2A55010400C29740 /* VideoView.swift in Sources */,
 				93CD50D42A676D9500A156B2 /* CategorySelectionView.swift in Sources */,
+				932FFF242A9C69640093C3F0 /* WebView.swift in Sources */,
 				939887812A55148100C29740 /* ContentView.swift in Sources */,
 				9339CD8C2A53FBEB000A21B1 /* TabBarButton.swift in Sources */,
 				932126022A779CFA00BF5919 /* ChartView.swift in Sources */,
 				93B98A312A55392800626756 /* Extensions.swift in Sources */,
 				932483C02A53BDE00081FEDC /* CustomTabBar.swift in Sources */,
+				932FFF202A9C667C0093C3F0 /* VideoListView.swift in Sources */,
+				932FFF1C2A9C65830093C3F0 /* YoutubeVideo.swift in Sources */,
 				93EDA99F2A7B6EDC002036E8 /* ShareStringView.swift in Sources */,
+				932FFF222A9C682F0093C3F0 /* YouTubeVideoResponse.swift in Sources */,
 				93AFFA912A5CE37E00A2D6E0 /* TransactionRow.swift in Sources */,
 				9331674B2A64E14C0042DEC4 /* TransactionListView.swift in Sources */,
 				9398877B2A5500E700C29740 /* NewsView.swift in Sources */,
