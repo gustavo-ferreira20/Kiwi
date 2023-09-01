@@ -7,30 +7,51 @@
 
 import Foundation
 
+
+
+
 class NewsViewModel: ObservableObject {
     @Published var newsArticles: [NewsArticle] = []
 
     func fetchFinanceNews() {
-        
         let apiKey = "3de37b845a0b4040927140e27b4bab0d"
-        let urlString = "https://newsapi.org/v2/top-headlines?country=us&category=business&q=finance&apiKey=\(apiKey)"
+        let urlString = "https://newsapi.org/v2/everything?q=finance+tips&language=en&apiKey=\(apiKey)"
 
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
                         let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
                         let response = try decoder.decode(NewsAPIResponse.self, from: data)
 
                         DispatchQueue.main.async {
-                            self.newsArticles = response.articles
+                            // Filter out articles with all nil properties
+                            let filteredArticles = response.articles.filter { $0.title != nil || $0.description != nil || $0.url != nil }
+
+                            // Clear the existing articles before appending new ones
+                            self.newsArticles.removeAll()
+
+                            // Append the filtered articles
+                            self.newsArticles.append(contentsOf: filteredArticles)
                         }
                     } catch {
                         print(error.localizedDescription)
+                        debugPrint(error)
                     }
                 }
             }.resume()
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
