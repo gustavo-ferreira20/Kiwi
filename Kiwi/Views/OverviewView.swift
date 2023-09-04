@@ -78,6 +78,18 @@ struct OverviewView: View {
                 Text("🥝")
                     .font(.title)
             }
+        // Reminder Button
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        openReminderApp()
+                    }){
+                        Image(systemName: "bell")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .imageScale(.large)
+                    }
+                    .foregroundColor(Color.icon)
+                }
             }
 
         }
@@ -89,6 +101,13 @@ struct OverviewView: View {
             }
         }
 
+    }
+    
+    
+    func openReminderApp() {
+        if let url = URL(string: "x-apple-reminderkit://") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 
 
