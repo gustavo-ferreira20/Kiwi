@@ -39,45 +39,47 @@ struct NewsView: View {
     
     @ObservedObject var viewModel = NewsViewModel()
     
-    init() {
-        // Customize the navigation bar appearance
-        let appearance = UINavigationBarAppearance()
-        
-        // Set the color of the bottom border
-        appearance.shadowColor = .systemGreen
-                
-        // Apply the custom appearance to the navigation bar
-        UINavigationBar.appearance().standardAppearance = appearance
-    }
 
     var body: some View {
+                
         NavigationView {
-            
-            List(viewModel.newsArticles) { article in
-                NavigationLink(destination: WebView(urlString: article.url ?? "")) {
-                    VStack(alignment: .leading) {
-                        Text(article.title ?? "")
-                            .font(.headline)
-                            .padding(.bottom, 4)
-                        Text(article.description ?? "")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+
+            //MARK: List of News and Tips
+                List(viewModel.newsArticles) { article in
+                    NavigationLink(destination: WebView(urlString: article.url ?? "")) {
+                        VStack(alignment: .leading) {
+                            Text(article.title ?? "")
+                                .font(.headline)
+                                .padding(.bottom, 4)
+                            Text(article.description ?? "")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(12)
+                        .background(Color.newsBox)
+                        .cornerRadius(15)
+                        .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
                     }
-                    .padding(12)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
+                    .listRowBackground(Color.background)
+                    .listRowSeparator(.hidden)
+                    .buttonStyle(PlainButtonStyle())
                 }
-//                .listRowBackground(Color.background)
-                .listRowSeparator(.hidden)
-                .buttonStyle(PlainButtonStyle())
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .navigationBarTitle("News & Tips")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarSeparatorHidden(false) // Show the navigation bar separator
+                .scrollContentBackground(.hidden)
+                .background(Color.background)
+            
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+        // Title
+            ToolbarItem(placement: .principal) {
+                Text("🥝")
+                    .font(.title)
             }
-            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .navigationBarTitle("Finance News")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarSeparatorHidden(false) // Show the navigation bar separator
-            .scrollContentBackground(.hidden)
-            .background(Color.background)
+
         }
         .onAppear {
             viewModel.fetchFinanceNews()
@@ -100,7 +102,7 @@ struct NavigationBarSeparatorModifier: ViewModifier {
         content.background(
             NavigationBarSeparator(hidden: hidden)
                 .frame(height: hidden ? 0 : 1)
-                .foregroundColor(Color.gray.opacity(0.4))
+                .foregroundColor(Color.icon.opacity(0.4))
                 .edgesIgnoringSafeArea(.bottom)
         )
     }

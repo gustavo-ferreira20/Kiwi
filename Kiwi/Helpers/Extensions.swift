@@ -14,6 +14,8 @@ extension Color{
     static let icon = Color("Icon")
     static let text = Color("Text")
     static let systemBackground = Color(uiColor: .systemBackground)
+    static let newsBox = Color("News Box")
+    static let newsBackground = Color("News Background")
 
 }
 
