@@ -94,7 +94,7 @@ struct NewsView: View {
             List(viewModel.newsArticles, id: \.id) { article in
                 NavigationLink(destination: WebView(urlString: article.url ?? "")) {
                     HStack(spacing: 10) {
-                        // Rounded image 
+                        // Rounded image
                         AsyncImage(url: URL(string: article.urlToImage ?? "")) { phase in
                             switch phase {
                             case .empty:
@@ -117,21 +117,32 @@ struct NewsView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 4) {
+                            Text(article.source?.name ?? "")
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.icon)
                             Text(article.title ?? "")
                                 .font(.headline)
+                                .fontWeight(.bold)
                                 .lineLimit(2) // Limit title to 2 lines
+                                .foregroundColor(Color.text)
                             Text(article.description ?? "")
                                 .font(.subheadline)
                                 .lineLimit(1) // Limit description to 1 line
+                                .foregroundColor(.secondary)
+                                .padding(.bottom, 4) // not working *******
+                            Text(article.author ?? "")
+                                .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(height: 150)
                     .padding(12)
-                    .background(Color.pink)
-                    .cornerRadius(15)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
+                    .background(Color.newsBackground)
+//                    .cornerRadius(15)
+//                    .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
                 }
                 .buttonStyle(PlainButtonStyle())
                 .listRowSeparator(.hidden) // Hide cell separators
@@ -139,7 +150,8 @@ struct NewsView: View {
             .navigationBarTitle("News & Tips")
             .navigationBarTitleDisplayMode(.inline)
             .scrollContentBackground(.hidden)
-            .background(Color.blue)
+            .background(Color.newsBackground)
+            .listStyle(PlainListStyle()) // rows to take up the entire width
         }
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
