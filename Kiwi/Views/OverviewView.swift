@@ -83,7 +83,7 @@ struct OverviewView: View {
                     Button(action: {
                         openReminderApp()
                     }){
-                        Image(systemName: "bell")
+                        Image(systemName: "bell.fill")
                             .resizable()
                             .frame(width: 24, height: 24)
                             .imageScale(.large)

@@ -27,13 +27,14 @@ class NewsViewModel: ObservableObject {
 
                         DispatchQueue.main.async {
                             // Filter out articles with all nil properties
-                            let filteredArticles = response.articles.filter { $0.title != nil || $0.description != nil || $0.url != nil }
+                            let filteredArticles = response.articles.filter { $0.title != nil || $0.description != nil || $0.url != nil || $0.urlToImage != nil || $0.source != nil || $0.author != nil }
 
                             // Clear the existing articles before appending new ones
                             self.newsArticles.removeAll()
 
                             // Append the filtered articles
                             self.newsArticles.append(contentsOf: filteredArticles)
+                            
                         }
                     } catch {
                         print(error.localizedDescription)

@@ -8,26 +8,76 @@
 import SwiftUI
 
 
+
 //struct NewsView: View {
 //
 //    @ObservedObject var viewModel = NewsViewModel()
 //
+//
 //    var body: some View {
+//
 //        NavigationView {
-//            List(viewModel.newsArticles) { article in
-//                NavigationLink(destination: WebView(urlString: article.url ?? "")) {
-//                    VStack(alignment: .leading) {
-//                        Text(article.title ?? "")
-//                            .font(.headline)
-//                        Text(article.description ?? "")
-//                            .font(.subheadline)
-//                            .foregroundColor(.secondary)
+//
+//            //MARK: List of News and Tips
+//                List(viewModel.newsArticles) { article in
+//                    NavigationLink(destination: WebView(urlString: article.url ?? "")) {
+//                        // Image
+//
+//                        HStack(spacing: 10) {
+//
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .fill(Color.newsBox)
+//                                .frame(width: 80, height: 80)
+//                                .overlay(
+//                                    AsyncImage(url: URL(string: article.urlToImage ?? "")) { phase in
+//                                        switch phase {
+//                                        case .empty:
+//                                            ProgressView()
+//                                        case .success(let image):
+//                                            image
+//                                                .resizable()
+//                                                .aspectRatio(contentMode: .fit)
+//                                        case .failure:
+//                                            Image(systemName: "photo")
+//                                                .resizable()
+//                                                .aspectRatio(contentMode: .fit)
+//                                        @unknown default:
+//                                            EmptyView()
+//                                        }
+//                                    }
+//                                ) // Rounded corners
+//
+//
+//                        VStack(alignment: .leading) {
+//                            Text(article.title ?? "")
+//                                .font(.headline)
+//                                .lineLimit(2)
+//                                .padding(.bottom, 4)
+//                            Text(article.description ?? "")
+//                                .font(.subheadline)
+//                                .lineLimit(1)
+//                                .foregroundColor(.secondary)
+//                        }
 //                    }
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(12)
+//                        .background(Color.pink) //88888
+//                        .cornerRadius(15)
+//                        .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
+//                    }
+//                    .listRowBackground(Color.yellow) //8888
+//                    .listRowSeparator(.hidden)
+//                    .buttonStyle(PlainButtonStyle())
 //                }
-//            }
-//            .navigationBarTitle("Finance News")
-//            .navigationBarTitleDisplayMode(.inline)
+//                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                .navigationBarTitle("News & Tips")
+//                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarSeparatorHidden(false) // Show the navigation bar separator
+//                .scrollContentBackground(.hidden)
+//                .background(Color.blue) // 888888
+//
 //        }
+//        .navigationBarTitleDisplayMode(.inline)
 //        .onAppear {
 //            viewModel.fetchFinanceNews()
 //        }
@@ -39,88 +89,66 @@ struct NewsView: View {
     
     @ObservedObject var viewModel = NewsViewModel()
     
-
     var body: some View {
-                
         NavigationView {
-
-            //MARK: List of News and Tips
-                List(viewModel.newsArticles) { article in
-                    NavigationLink(destination: WebView(urlString: article.url ?? "")) {
-                        VStack(alignment: .leading) {
+            List(viewModel.newsArticles, id: \.id) { article in
+                NavigationLink(destination: WebView(urlString: article.url ?? "")) {
+                    HStack(spacing: 10) {
+                        // Rounded image 
+                        AsyncImage(url: URL(string: article.urlToImage ?? "")) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                                    .frame(width: 80, height: 80)
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 80, height: 80)
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 4) {
                             Text(article.title ?? "")
                                 .font(.headline)
-                                .padding(.bottom, 4)
+                                .lineLimit(2) // Limit title to 2 lines
                             Text(article.description ?? "")
                                 .font(.subheadline)
+                                .lineLimit(1) // Limit description to 1 line
                                 .foregroundColor(.secondary)
                         }
-                        .padding(12)
-                        .background(Color.newsBox)
-                        .cornerRadius(15)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .listRowBackground(Color.background)
-                    .listRowSeparator(.hidden)
-                    .buttonStyle(PlainButtonStyle())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(12)
+                    .background(Color.pink)
+                    .cornerRadius(15)
+                    .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
                 }
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .navigationBarTitle("News & Tips")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarSeparatorHidden(false) // Show the navigation bar separator
-                .scrollContentBackground(.hidden)
-                .background(Color.background)
-            
+                .buttonStyle(PlainButtonStyle())
+                .listRowSeparator(.hidden) // Hide cell separators
+            }
+            .navigationBarTitle("News & Tips")
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .background(Color.blue)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-        // Title
-            ToolbarItem(placement: .principal) {
-                Text("🥝")
-                    .font(.title)
-            }
-
-        }
         .onAppear {
             viewModel.fetchFinanceNews()
         }
     }
 }
 
-@available(iOS 15.0, *)
-extension View {
-    func navigationBarSeparatorHidden(_ hidden: Bool) -> some View {
-        modifier(NavigationBarSeparatorModifier(hidden: hidden))
-    }
-}
 
-@available(iOS 15.0, *)
-struct NavigationBarSeparatorModifier: ViewModifier {
-    var hidden: Bool
-
-    func body(content: Content) -> some View {
-        content.background(
-            NavigationBarSeparator(hidden: hidden)
-                .frame(height: hidden ? 0 : 1)
-                .foregroundColor(Color.icon.opacity(0.4))
-                .edgesIgnoringSafeArea(.bottom)
-        )
-    }
-}
-
-@available(iOS 15.0, *)
-struct NavigationBarSeparator: UIViewRepresentable {
-    var hidden: Bool
-
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView()
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-        uiView.isHidden = hidden
-    }
-}
 
 
 struct NewsView_Previews: PreviewProvider {
