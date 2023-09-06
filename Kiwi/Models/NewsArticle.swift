@@ -17,6 +17,7 @@ struct NewsArticle: Identifiable, Decodable {
     let urlToImage: String?
     let source: SourceName?
     let author: String?
+    let publishedAt: String?
 
     // Custom initializer for Decodable conformance
     init(from decoder: Decoder) throws {
@@ -27,6 +28,7 @@ struct NewsArticle: Identifiable, Decodable {
         self.urlToImage = try? container.decodeIfPresent(String.self, forKey: .urlToImage)
         self.source = try? container.decodeIfPresent(SourceName.self, forKey: .source)
         self.author = try? container.decodeIfPresent(String.self, forKey: .author)
+        self.publishedAt = try? container.decodeIfPresent(String.self, forKey: .publishedAt)
  
     }
 
@@ -37,6 +39,7 @@ struct NewsArticle: Identifiable, Decodable {
         case urlToImage
         case source
         case author
+        case publishedAt
     }
 }
 
