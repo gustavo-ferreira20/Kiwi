@@ -301,6 +301,7 @@ struct VideoView: View {
                                 VStack {
                                     getEmojiForQuery(query)
                                         .font(.system(size: 38))
+                                        .padding(2)
                                     Text(query)
                                         .font(.system(size: 14))
                                         .foregroundColor(Color.icon)
@@ -334,6 +335,7 @@ struct VideoView: View {
                                 .cornerRadius(10)
                         }
                         .listRowBackground(Color(UIColor.systemBackground))
+                        .listRowSeparator(.hidden)
                     }
                     .listStyle(PlainListStyle())
                 }
