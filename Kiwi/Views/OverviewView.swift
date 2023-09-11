@@ -16,7 +16,7 @@ struct OverviewView: View {
     @State private var isModalPresented = false
     @State private var isDataSaved = false
     
-
+    
 
     var body: some View {
         NavigationView{
@@ -68,6 +68,9 @@ struct OverviewView: View {
                     .sheet(isPresented: $isModalPresented) {
                         // Present the AddDataView using the sheet modifier
                         AddDataView(isDataSaved: $isDataSaved)
+                            .presentationDetents(
+                                [.height(500)]
+                            )
 
                     }
                     .symbolRenderingMode(.palette)
